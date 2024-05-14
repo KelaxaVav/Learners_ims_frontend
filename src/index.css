@@ -1,0 +1,6 @@
+/* Example CSS to make the table responsive */
+#datatable-buttons_wrapper {
+    width: 100%; /* Set the wrapper width to fit its container */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+  
