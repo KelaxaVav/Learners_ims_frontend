@@ -30,7 +30,7 @@ function permissions(props) {
             <div className="card-header d-flex justify-content-between">
               <h4 className="card-title">ROLES</h4>
               <button type="button" className="btn btn-primary waves-effect waves-light " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Add Role +
+                Add Permission +
               </button>
             </div>
             <div className="card-body">
