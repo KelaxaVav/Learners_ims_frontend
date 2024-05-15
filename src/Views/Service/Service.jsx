@@ -10,7 +10,7 @@ function Service() {
                     <div class="card-header">
                         <h4 class="card-title">SERVICES</h4>
                         <div className="d-flex justify-content-end gap-2">
-                            <Link to="/addservice">
+                            <Link to="/addService">
                                 <button
                                     type="button"
                                     className="btn btn-primary waves-effect waves-light w-sm" >

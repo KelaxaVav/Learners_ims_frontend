@@ -9,7 +9,8 @@ import Roles from './Views/Role/roles'
 import Permission from './Views/Permission/permissions'
 import Setting from './Views/settings/Settings'
 import User from './Views/User/users'
-import Service from './Views/Service/service';
+import AddUser from './Views/User/add_user'
+import Service from './Views/Service/Service';
 import AddService from './Views/Service/AddService';
 import Coupon from './Views/Coupon/coupon'
 import AddCoupon from './Views/Coupon/add'
@@ -90,17 +91,17 @@ function App() {
 
           } />
           <Route path="/user" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
             <User />
-            // </ProtectedRoute>
-
           } />
-
+          <Route path="/addUser" element={
+            <AddUser />
+          } />
+          
           <Route path="/service" element={
             <Service />
           } />
 
-          <Route path="/addservice" element={
+          <Route path="/addService" element={
             <AddService />
           } />
 
