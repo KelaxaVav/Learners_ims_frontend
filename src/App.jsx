@@ -26,6 +26,10 @@ import VehicleClass from './Views/Vehicle/VehicleClass';
 import CreateVehicle from './Views/Vehicle/CreateVehicle';
 import ExamBook from './Views/ExamBook/ExamBooks';
 import CreateExamBook from './Views/ExamBook/CreateExamBook';
+import ExamDates from './Views/ExamDate/ExamDates';
+import CreateExamDate from './Views/ExamDate/CreateExamDate';
+import CreateTrialDate from './Views/TrialDate/CreateTrialDate';
+import TrialDate from './Views/TrialDate/TrialDate';
 import LPBook from './Views/LPBook/LPBooks';
 import CreateLPBook from './Views/LPBook/CreateLPBook';
 import FilterExamBook from './Views/ExamBook/FilterExamBook';
@@ -92,6 +96,19 @@ function App() {
 
           <Route path="/createExamBook" element={
             <CreateExamBook/>
+          } />
+         
+          <Route path="/examDate" element={
+            <ExamDates/>
+          } />
+          <Route path="/createExamDate" element={
+            <CreateExamDate/>
+          } />
+          <Route path="/trialDate" element={
+            <TrialDate/>
+          } />
+          <Route path="/createTrialDate" element={
+            <CreateTrialDate/>
           } />
 
           <Route path="/lpBook" element={
