@@ -1,6 +1,6 @@
 import React from 'react'
 
-function addpay() {
+function addPay() {
     return (
         <div>
             <div className="card">
@@ -58,4 +58,4 @@ function addpay() {
     )
 }
 
-export default addpay
+export default addPay

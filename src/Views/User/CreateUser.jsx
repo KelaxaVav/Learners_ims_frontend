@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function add_user(props) {
+function CreateUser(props) {
     return (
         <>
             <h4 className="card-title">CREATE USER</h4>
@@ -68,15 +68,10 @@ function add_user(props) {
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </>
     )
 }
 
-add_user.propTypes = {}
+CreateUser.propTypes = {}
 
-export default add_user
+export default CreateUser

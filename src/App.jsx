@@ -9,21 +9,23 @@ import Roles from './Views/Role/roles'
 import Permission from './Views/Permission/permissions'
 import Setting from './Views/settings/Settings'
 import User from './Views/User/users'
-import AddUser from './Views/User/add_user'
+import AddUser from './Views/User/CreateUser'
 import Service from './Views/Service/Service';
 import AddService from './Views/Service/AddService';
 import Coupon from './Views/Coupon/coupon'
 import AddCoupon from './Views/Coupon/add'
 import Order from './Views/Order/order'
 import Payments from './Views/Payments/payments'
-import Addpay from './Views/Payments/addpay'
+import AddPay from './Views/Payments/addPay'
 import GestRoute from './utils/Route/GestRoute';
 // import { ACCOUNT_TYPE } from './utils/helper';
 import PageNotAccessible from './pages/PageNotAccessible';
 import CustomerList from './Views/Customer/CustomerList';
 import CreateCustomer from './Views/Customer/CreateCustomer';
-import VehicleClass from './Views/Vehicle/VehicleClasse';
+import VehicleClass from './Views/Vehicle/VehicleClass';
 import CreateVehicle from './Views/Vehicle/CreateVehicle';
+import ExamBook from './Views/ExamBook/ExamBooks';
+import CreateExamBook from './Views/ExamBook/CreateExamBook';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -41,86 +43,86 @@ function App() {
           } /> */}
 
           <Route path="/dashboard" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
             <Dashboard />
-            // </ProtectedRoute>
-
           } />
+
+          <Route path="/user" element={
+            <User />
+          } />
+
+          <Route path="/createUser" element={
+            <AddUser />
+          } />
+
+          <Route path="/role" element={
+            <Roles />
+          } />
+
+          <Route path="/permission" element={
+            <Permission />
+          } />
+
+          <Route path="/customer" element={
+            <CustomerList/>
+          } />
+
+          <Route path="/createCustomer" element={
+            <CreateCustomer/>
+          } />
+
+          <Route path="/vehicleClass" element={
+            <VehicleClass/>
+          } />
+          
+          <Route path="/createVehicle" element={
+            <CreateVehicle/>
+          } />
+
+          <Route path="/examBook" element={
+            <ExamBook/>
+          } />
+
+          <Route path="/createExamBook" element={
+            <CreateExamBook/>
+          } />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           <Route path="/addcoupon" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
             <AddCoupon />
-            // </ProtectedRoute>
-
-          } />
-
-
-          <Route path="/role" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <Roles />
-            // </ProtectedRoute>
 
           } />
 
           <Route path="/order" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
             <Order />
-            // </ProtectedRoute>
-
           } />
 
           <Route path="/payments" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
             <Payments/>
-            // </ProtectedRoute>
-
           } />
-          <Route path="/customerList" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <CustomerList/>
-            // </ProtectedRoute>
+         
 
-          } />
-          <Route path="/vehicleClass" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <VehicleClass/>
-            // </ProtectedRoute>
-
-          } />
-          <Route path="/createCustomer" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <CreateCustomer/>
-            // </ProtectedRoute>
-
-          } />
-          <Route path="/createVehicle" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <CreateVehicle/>
-            // </ProtectedRoute>
-
-          } />
-
-          <Route path="/addpay" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <Addpay/>
-            // </ProtectedRoute>
-
+          <Route path="/addPay" element={
+            <AddPay/>
           } />
 
 
-          <Route path="/permission" element={
-            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
-            <Permission />
-            // </ProtectedRoute>
-
-          } />
-          <Route path="/user" element={
-            <User />
-          } />
-          <Route path="/addUser" element={
-            <AddUser />
-          } />
+         
+         
           
           <Route path="/service" element={
             <Service />
