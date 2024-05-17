@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ExamBooks = () => {
+const LPBooks = () => {
   return (
     <div className="row">
       <div className="col-12">
         <div className="card">
           <div className="card-header ">
             <div className='d-flex justify-content-between mb-3'>
-              <h4 className="card-title">ExamBook - 2024-05-10</h4>
-              <Link to="/createExamBook">
+              <h4 className="card-title">LP Book - 2024-05-20</h4>
+              <Link to="/createLPBook">
                 <button type="button" className="btn btn-primary waves-effect waves-light">
-                Create ExamBook +
+                Create LP Book +
                 </button>
               </Link>
             </div>
@@ -73,4 +73,4 @@ const ExamBooks = () => {
   );
 };
 
-export default ExamBooks;
+export default LPBooks;

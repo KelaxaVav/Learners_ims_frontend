@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function CreateExamBook(props) {
+function CreateLPBook(props) {
     return (
         <>
-            <h4 className="card-title">CREATE EXAM BOOK</h4>
+            <h4 className="card-title">CREATE LP BOOK</h4>
             <div className="col-12 p-0 card bg-white rounded-0 ">
                 <div className="card-body p-2">
                     <div className="row ">
+                       
                         <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
                             <label htmlFor="example-balance-input" className="form-label">Bill No</label>
                             <input className="form-control" type="number" placeholder=' Bill Number....' />
@@ -29,10 +30,18 @@ function CreateExamBook(props) {
                                 <input className="form-control" type="number" placeholder=' PIV Amount...' />
                         </div>
                         <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                <label htmlFor="example-balance-input" className="form-label">AP No</label>
+                                <input className="form-control" type="number" placeholder=' Phone Number....' />
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                <label htmlFor="example-balance-input" className="form-label">LP No</label>
+                                <input className="form-control" type="number" placeholder=' Phone Number....' />
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <label htmlFor="example-balance-input" className="form-label">TP Number</label>
                                 <input className="form-control" type="number" placeholder=' Phone Number....' />
                         </div>
-                        
+
                         
                         <div className="row mt-3 ">
                             <div className=" d-flex justify-content-end gap-2">
@@ -59,6 +68,6 @@ function CreateExamBook(props) {
     )
 }
 
-CreateExamBook.propTypes = {}
+CreateLPBook.propTypes = {}
 
-export default CreateExamBook
+export default CreateLPBook

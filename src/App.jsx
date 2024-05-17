@@ -26,6 +26,10 @@ import VehicleClass from './Views/Vehicle/VehicleClass';
 import CreateVehicle from './Views/Vehicle/CreateVehicle';
 import ExamBook from './Views/ExamBook/ExamBooks';
 import CreateExamBook from './Views/ExamBook/CreateExamBook';
+import LPBook from './Views/LPBook/LPBooks';
+import CreateLPBook from './Views/LPBook/CreateLPBook';
+import FilterExamBook from './Views/ExamBook/FilterExamBook';
+import FilterLPBook from './Views/LPBook/FilteLPBook';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -82,8 +86,24 @@ function App() {
             <ExamBook/>
           } />
 
+           <Route path="/filterExamBook" element={
+            <FilterExamBook/>
+          } />
+
           <Route path="/createExamBook" element={
             <CreateExamBook/>
+          } />
+
+          <Route path="/lpBook" element={
+            <LPBook/>
+          } />
+
+          <Route path="/filterLPBook" element={
+            <FilterLPBook/>
+          } />
+
+          <Route path="/createLPBook" element={
+            <CreateLPBook/>
           } />
 
 
