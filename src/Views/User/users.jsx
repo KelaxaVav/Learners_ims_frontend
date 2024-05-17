@@ -10,7 +10,7 @@ function users(props) {
         <div className="card">
           <div className="card-header d-flex justify-content-between">
             <h4 className="card-title">USERS</h4>
-            <Link to="/addUser">
+            <Link to="/createUser">
               <button type="button" className="btn btn-primary waves-effect waves-light " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add User +
               </button>

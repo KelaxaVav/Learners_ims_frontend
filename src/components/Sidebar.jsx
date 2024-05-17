@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function Sidebar(props) {
     const is_admin = useSelector((state) => state?.user?.user?.user?.is_admin) ?? false;
     const dispatch = useDispatch()
-    console.log(is_admin);
+    // console.log(is_admin);
     return (
         <>
             <div className="vertical-menu">
@@ -31,15 +31,33 @@ function Sidebar(props) {
                                 </Link>
                             </li>
                             <li>
+                                <Link to={"/role"} >
+                                    <i className="fab fa-critical-role" />
+                                    <span>Role</span>
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to={"/permission"} >
                                     <i className="fas fa-table" />
                                     <span>Permission</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link to={"/role"} >
-                                    <i className="fab fa-critical-role" />
-                                    <span>Role</span>
+                                <Link to={"/vehicleClass"} >
+                                    <i className="fas fa-caravan" />
+                                    <span>Vehicle</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={"/customer"} >
+                                    <i className="fas fa-users" />
+                                    <span>Customer</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={"/examBook"} >
+                                    <i className="fas fa-users" />
+                                    <span>Exam Book</span>
                                 </Link>
                             </li>
                             <li>
@@ -52,18 +70,6 @@ function Sidebar(props) {
                                 <Link to={"/order"} >
                                     <i className="fas fa-cart-plus" />
                                     <span>Order</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={"/customerList"} >
-                                    <i className="fas fa-users" />
-                                    <span>Customer</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={"/vehicleClass"} >
-                                    <i className="fas fa-caravan" />
-                                    <span>Vehicle</span>
                                 </Link>
                             </li>
                             <li>

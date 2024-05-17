@@ -3,7 +3,7 @@ import React from 'react'
  const CreateVehicle = () => {
   return (
     <>
-    <h4 className="card-title">CREATE Customer</h4>
+    <h4 className="card-title">CREATE CUSTOMER</h4>
     <div className="col-12 p-0 card bg-white rounded-0 ">
         <div className="card-body p-2">
             <div className="row ">
@@ -14,7 +14,7 @@ import React from 'react'
                         <input className="form-control" type="text" placeholder='' />
                     </div>
                     <div className="mb-3 m-1 ">
-                        <label htmlFor="example-balance-input" className="form-label">Discerption</label>
+                        <label htmlFor="example-balance-input" className="form-label">Description</label>
                         <input className="form-control" type="text" placeholder='' />
                     </div>
                     

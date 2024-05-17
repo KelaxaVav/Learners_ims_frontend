@@ -10,7 +10,7 @@ function payments() {
                     <div class="card-header">
                         <h4 class="card-title">Payments</h4>
                         <div className="d-flex justify-content-end gap-2">
-                            <Link to="/addpay">
+                            <Link to="/addPay">
                                 <button
                                     type="button"
                                     className="btn btn-primary waves-effect waves-light w-sm" >
