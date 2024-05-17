@@ -38,7 +38,7 @@ function Sidebar(props) {
                             </li>
                             <li>
                                 <Link to={"/role"} >
-                                    <i className="fas fa-users" />
+                                    <i className="fab fa-critical-role" />
                                     <span>Role</span>
                                 </Link>
                             </li>
@@ -50,8 +50,20 @@ function Sidebar(props) {
                             </li>
                             <li>
                                 <Link to={"/order"} >
-                                    <i className=" fas fa-cart-plus" />
+                                    <i className="fas fa-cart-plus" />
                                     <span>Order</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={"/customerList"} >
+                                    <i className="fas fa-users" />
+                                    <span>Customer</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={"/vehicleClass"} >
+                                    <i className="fas fa-caravan" />
+                                    <span>Vehicle</span>
                                 </Link>
                             </li>
                             <li>

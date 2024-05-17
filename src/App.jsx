@@ -17,12 +17,13 @@ import AddCoupon from './Views/Coupon/add'
 import Order from './Views/Order/order'
 import Payments from './Views/Payments/payments'
 import Addpay from './Views/Payments/addpay'
-
-
-
 import GestRoute from './utils/Route/GestRoute';
 // import { ACCOUNT_TYPE } from './utils/helper';
 import PageNotAccessible from './pages/PageNotAccessible';
+import CustomerList from './Views/Customer/CustomerList';
+import CreateCustomer from './Views/Customer/CreateCustomer';
+import VehicleClass from './Views/Vehicle/VehicleClasse';
+import CreateVehicle from './Views/Vehicle/CreateVehicle';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -72,6 +73,30 @@ function App() {
           <Route path="/payments" element={
             // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
             <Payments/>
+            // </ProtectedRoute>
+
+          } />
+          <Route path="/customerList" element={
+            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
+            <CustomerList/>
+            // </ProtectedRoute>
+
+          } />
+          <Route path="/vehicleClass" element={
+            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
+            <VehicleClass/>
+            // </ProtectedRoute>
+
+          } />
+          <Route path="/createCustomer" element={
+            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
+            <CreateCustomer/>
+            // </ProtectedRoute>
+
+          } />
+          <Route path="/createVehicle" element={
+            // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
+            <CreateVehicle/>
             // </ProtectedRoute>
 
           } />
