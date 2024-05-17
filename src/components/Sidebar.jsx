@@ -25,7 +25,7 @@ function Sidebar(props) {
                                     <li><a href="javascript: void(0);" >Level 2.2</a></li>
                                 </ul>
                             </li>
-                            
+
                             <li>
                                 <Link to={"/dashboard"} >
                                     <i data-feather="home" />
@@ -63,20 +63,31 @@ function Sidebar(props) {
                                 </Link>
                             </li>
                             <li>
+                                <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">
                                     <i className="fas fa-users" />
                                     <span>Book</span>
+                                </a>
 
-                                    <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="javascript: void(0);" >Level 2.1</a></li>
-                                    <li><a href="javascript: void(0);" >Level 2.2</a></li>
-                                    </ul>
-                               
-                            </li>
-                            <li>
+
+                                <ul class="sub-menu" aria-expanded="true">
+                                <li>
                                 <Link to={"/filterExamBook"} >
                                     <i className="fas fa-users" />
                                     <span>Exam Book</span>
                                 </Link>
+                            </li>
+                            <li>
+                                <Link to={"/filterLPBook"} >
+                                    <i className="fas fa-users" />
+                                    <span>LP Book</span>
+                                </Link>
+                            </li>
+                                </ul>
+
+                            </li>
+                           
+
+                            <li>
                                 <Link to={"/examDate"} >
                                     <i className="fas fa-users" />
                                     <span>Exam Date</span>
@@ -87,14 +98,9 @@ function Sidebar(props) {
                                     <i className="fas fa-cogs" />
                                     <span>TrialDate</span>
                                 </Link>
-                              
+
                             </li>
-                            <li>
-                                <Link to={"/filterLPBook"} >
-                                    <i className="fas fa-users" />
-                                    <span>LP Book</span>
-                                </Link>
-                            </li>
+                           
                             <li>
                                 <Link to={"/service"} >
                                     <i className=" fas fa-puzzle-piece" />
@@ -131,7 +137,7 @@ function Sidebar(props) {
                                     <span>Setting</span>
                                 </Link>
                             </li>
-                           
+
                         </ul>
                     </div>
                     {/* Sidebar */}
