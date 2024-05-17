@@ -27,18 +27,18 @@ function Header(props) {
                         <div className="navbar-brand-box">
                             <Link to={"/"} className="logo logo-dark">
                                 <span className="logo-sm">
-                                    <img src="assets/images/logo-sm.svg" height={24} />
+                                    <img src="assets/images/logo1.png" height={24} />
                                 </span>
                                 <span className="logo-lg">
-                                    <img src="assets/images/logo-sm.svg" height={24} /> <span className="logo-txt">Service App </span>
+                                    <img src="assets/images/logo1.png" height={24} /> <span className="logo-txt">Manju Learners </span>
                                 </span>
                             </Link>
                             <Link to={"/"} className="logo logo-light">
                                 <span className="logo-sm">
-                                    <img src="assets/images/logo-sm.svg" height={24} />
+                                    <img src="assets/images/logo1.png" height={24} />
                                 </span>
                                 <span className="logo-lg">
-                                    <img src="assets/images/logo-sm.svg" height={24} /> <span className="logo-txt">Service </span>
+                                    <img src="assets/images/logo1.png" height={24} /> <span className="logo-txt">Manju Learners </span>
                                 </span>
                             </Link>
                         </div>
