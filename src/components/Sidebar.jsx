@@ -65,16 +65,12 @@ function Sidebar(props) {
                                 </Link>
                             </li>
                             <li>
-                            <Link to={"/trialDate"} >
+                                <Link to={"/trialDate"} >
                                     <i className="fas fa-cogs" />
                                     <span>TrialDate</span>
                                 </Link>
-                                
-                                <Link to={"/createTrialDate"} >
-                                    <i className="fas fa-cogs" />
-                                    <span>CreateTrialDate</span>
-                                </Link>
-                                </li>
+                              
+                            </li>
                             <li>
                                 <Link to={"/service"} >
                                     <i className=" fas fa-puzzle-piece" />
@@ -110,8 +106,6 @@ function Sidebar(props) {
                                     <i className="fas fa-cogs" />
                                     <span>Setting</span>
                                 </Link>
-                               
-                               
                             </li>
                         </ul>
                     </div>
