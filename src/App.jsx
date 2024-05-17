@@ -30,6 +30,10 @@ import ExamDates from './Views/ExamDate/ExamDates';
 import CreateExamDate from './Views/ExamDate/CreateExamDate';
 import CreateTrialDate from './Views/TrialDate/CreateTrialDate';
 import TrialDate from './Views/TrialDate/TrialDate';
+import LPBook from './Views/LPBook/LPBooks';
+import CreateLPBook from './Views/LPBook/CreateLPBook';
+import FilterExamBook from './Views/ExamBook/FilterExamBook';
+import FilterLPBook from './Views/LPBook/FilteLPBook';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -86,6 +90,10 @@ function App() {
             <ExamBook/>
           } />
 
+           <Route path="/filterExamBook" element={
+            <FilterExamBook/>
+          } />
+
           <Route path="/createExamBook" element={
             <CreateExamBook/>
           } />
@@ -101,6 +109,18 @@ function App() {
           } />
           <Route path="/createTrialDate" element={
             <CreateTrialDate/>
+          } />
+
+          <Route path="/lpBook" element={
+            <LPBook/>
+          } />
+
+          <Route path="/filterLPBook" element={
+            <FilterLPBook/>
+          } />
+
+          <Route path="/createLPBook" element={
+            <CreateLPBook/>
           } />
 
 
