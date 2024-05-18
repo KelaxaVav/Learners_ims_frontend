@@ -34,6 +34,12 @@ import LPBook from './Views/LPBook/LPBooks';
 import CreateLPBook from './Views/LPBook/CreateLPBook';
 import FilterExamBook from './Views/ExamBook/FilterExamBook';
 import FilterLPBook from './Views/LPBook/FilteLPBook';
+import ReExam from './Views/ReAttempt/ReExam';
+import CreateReExam from './Views/ReAttempt/CreateReExam';
+import FilterReExam from './Views/ReAttempt/FilterReExam';
+import ReTrial from './Views/ReTrial/ReTrial';
+import CreateReTrial from './Views/ReTrial/CreateReTrial';
+import FilterReTrial from './Views/ReTrial/FilterReTrial';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -121,6 +127,26 @@ function App() {
 
           <Route path="/createLPBook" element={
             <CreateLPBook/>
+          } />
+         
+          <Route path="/reExam" element={
+            <ReExam/>
+          } />
+          <Route path="/createReExam" element={
+            <CreateReExam/>
+          } />
+          <Route path="/filterReExam" element={
+            <FilterReExam/>
+          } />
+         
+          <Route path="/filterReTrial" element={
+            <FilterReTrial/>
+          } />
+          <Route path="/createReTrial" element={
+            <CreateReTrial/>
+          } />
+          <Route path="/reTrial" element={
+            <ReTrial/>
           } />
 
 
