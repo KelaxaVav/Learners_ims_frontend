@@ -82,8 +82,30 @@ function Sidebar(props) {
                                     <span>LP Book</span>
                                 </Link>
                             </li>
+                            
                                 </ul>
+                               
+                                <li>
+                <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">
+                  <i className="fas fa-users" />
+                  <span>Re Attempt</span>
+                </a>
 
+                <ul class="sub-menu" aria-expanded="true">
+                  <li>
+                    <Link to={"/filterReTrial"}>
+                      <i className="fas fa-users" />
+                      <span>Re Trial</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/filterReExam"}>
+                      <i className="fas fa-users" />
+                      <span>Re Exam</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
                             </li>
                            
 
