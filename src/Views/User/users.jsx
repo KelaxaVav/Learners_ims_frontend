@@ -34,17 +34,13 @@ function users(props) {
                   <td>Santhan</td>
                   <td>Santhan@gmail.com</td>
                   <td>Admin</td>
-                  <td>
-                    <td>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
-                        <i className="fas fa-pencil-alt"></i>
-                      </a>
-                    </td>
-                    <td>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="trash">
-                        <i className=" fas fa-trash"></i>
-                      </a>
-                    </td>
+                  <td >
+                        <a className="btn btn-outline-secondary btn-sm edit m-3" title="Edit">
+                          <i className="fas fa-pencil-alt"></i>
+                        </a>
+                        <a className="btn btn-outline-secondary btn-sm edit" title="trash">
+                          <i className=" fas fa-trash"></i>
+                        </a>
                   </td>
                 </tr>
 
