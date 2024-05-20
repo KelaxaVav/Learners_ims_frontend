@@ -11,8 +11,8 @@ const FilterLPBook = () => {
                             <h4 className="card-title">Filter LP Book</h4>
                         </div>
                         <div className="card-body table-responsive">
-                            <div className="row col-6">
-                                <div className="col-12 mb-2">
+                            <div className="row col-12">
+                                <div className="col-6 mb-2">
                                     <label htmlFor="example-name-input" className="form-label">Exam Book Date</label>
                                     <select className="form-select">
                                         <option>Select</option>
@@ -22,7 +22,7 @@ const FilterLPBook = () => {
                                         <option>2024-05-25</option>
                                     </select>
                                 </div>
-                                <div className="col-12 mb-2">
+                                <div className="col-6 mb-2">
                                     <label htmlFor="example-name-input" className="form-label">LP Exam Date</label>
                                     <select className="form-select">
                                         <option>Select</option>
@@ -30,6 +30,14 @@ const FilterLPBook = () => {
                                         <option>2024-05-15</option>
                                         <option>2024-05-20</option>
                                         <option>2024-05-25</option>
+                                    </select>
+                                </div>
+                                <div className="col-6 mb-2">
+                                    <label htmlFor="example-name-input" className="form-label">Trial Type</label>
+                                    <select className="form-select">
+                                        <option>Select</option>
+                                        <option>Normal Trial</option>
+                                        <option>Extern Trial</option>
                                     </select>
                                 </div>
                                 <div className="col-12 ">
