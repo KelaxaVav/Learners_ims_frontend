@@ -31,8 +31,8 @@ function users(props) {
 
                 <tr>
                   <td>001</td>
-                  <td>Santhan</td>
-                  <td>Santhan@gmail.com</td>
+                  <td>Kopana</td>
+                  <td>Kopana@gmail.com</td>
                   <td>Admin</td>
                   <td >
                         <a className="btn btn-outline-secondary btn-sm edit m-3" title="Edit">

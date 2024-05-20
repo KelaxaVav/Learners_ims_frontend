@@ -4,70 +4,82 @@ import React from 'react'
   return (
     <>
     <h4 className="card-title">CREATE Customer</h4>
-    <div className="col-12 p-0 card bg-white rounded-0 ">
+    <div className="col-12 p-0 card  rounded-0 ">
         <div className="card-body p-2">
             <div className="row ">
                 <div className="col-lg-6 ">
                    
-                    <div className="mb-3">
-                        <label htmlFor="example-name-input" className="form-label">Date</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
+                   
 
                     <div className="mb-3 m-1 ">
-                        <label htmlFor="example-balance-input" className="form-label">Aplication Register No</label>
+                        <label htmlFor="example-balance-input" className="form-label">Application Register No</label>
                         <input className="form-control" type="number" placeholder='' />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-description-input" className="form-label">Name</label>
-                        <input className="form-control" type="text" placeholder='' />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="example-balance-input" className="form-label">NIC No</label>
                         <input className="form-control" type="text" placeholder='' />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-description-input" className="form-label">Address</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
+                   
                     <div className="mb-3">
                         <label htmlFor="example-description-input" className="form-label">Date of Birth</label>
                         <input className="form-control" type="text" placeholder='' />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-description-input" className="form-label">Age</label>
-                        <input className="form-control" type="number" placeholder='' />
-                    </div>
+                   
                     <div className="mb-3">
                         <label htmlFor="example-description-input" className="form-label">Phone No</label>
                         <input className="form-control" type="text" placeholder='' />
-                        <input className="form-control mt-2" type="text" placeholder='' />
+                        {/* <input className="form-control mt-2" type="text" placeholder='' /> */}
                     </div>
+                
                     <div className="mb-3">
-                        <label htmlFor="example-description-input" className="form-label">Vehicle Classes</label>
+                        <label htmlFor="example-balance-input" className="form-label">Medical Certificate No</label>
                         <input className="form-control" type="text" placeholder='' />
                     </div>
-                  
-                 
-                </div>
-                <div className="col-lg-6">
-               
-                    <div className="mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Amount</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Medical Cretificate No</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Date Proficiency Certificate No</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
+
                     <div className="mb-3">
                         <label htmlFor="example-balance-input" className="form-label">Driving License No</label>
                       <input className="form-control" type="text" placeholder='' />
                     </div>
+
+                    <div className="mb-3">
+                        <label htmlFor="example-balance-input" className="form-label"> Date if any</label>
+                        <input className="form-control" type="text" placeholder='' />
+                    </div>
+                  
+                    <div className="mb-3">
+                        <label htmlFor="example-balance-input" className="form-label">Description</label>
+                        <input className="form-control" type="text" placeholder='' />
+                    </div>
+                 
+                </div>
+                <div className="col-lg-6">
+                <div className="mb-3">
+                        <label htmlFor="example-description-input" className="form-label">Name</label>
+                        <input className="form-control" type="text" placeholder='' />
+                    </div>
+                   
+                    <div className="mb-3">
+                        <label htmlFor="example-description-input" className="form-label">Address</label>
+                        <textarea id="basicpill-address-input" class="form-control" rows="2" placeholder="Enter your Address"></textarea>
+                    </div>
+
+                    <div className="mb-3">
+                        <label htmlFor="example-description-input" className="form-label">Age</label>
+                        <input className="form-control" type="number" placeholder='' />
+                    </div>
+
+                    <div className="mb-3">
+                        <label htmlFor="example-description-input" className="form-label">Vehicle Classes</label>
+                        <input className="form-control" type="text" placeholder='' />
+                    </div>
+
+                    <div className="mb-3">
+                        <label htmlFor="example-balance-input" className="form-label">Date Proficiency Certificate No</label>
+                        <input className="form-control" type="text" placeholder='' />
+                    </div>
+
+
+                   
                     <div className="mb-3">
                         <label htmlFor="example-balance-input" className="form-label"> Vehicle Class </label>
                         <input className="form-control" type="text" placeholder='' />
@@ -76,20 +88,14 @@ import React from 'react'
                         <label htmlFor="example-balance-input" className="form-label">  Bus FC card</label>
                         <input className="form-control" type="text" placeholder='' />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-balance-input" className="form-label"> Date if any</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
+                  
 
                     <div className="mb-3">
                         <label htmlFor="example-Account no-input" className="form-label">ImageUpload</label>
                         <input className="form-control" type="file" placeholder='' />
 
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Discerption</label>
-                        <input className="form-control" type="text" placeholder='' />
-                    </div>
+                  
 
                 </div>
                 <div className="row mt-3 ">

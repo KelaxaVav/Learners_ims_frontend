@@ -76,7 +76,7 @@ function Dashboard(props) {
                             <div className="card-body">
                                 <div className="row align-items-center">
                                     <div className="col-6">
-                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Number of Moderatiors</span>
+                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Number of Moderators</span>
                                         <h4 className="mb-3">
                                             $<span className="counter-value" data-target="500">0</span>
                                         </h4>
