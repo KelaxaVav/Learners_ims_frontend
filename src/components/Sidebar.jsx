@@ -26,14 +26,14 @@ function Sidebar(props) {
 
               <li data-key="user_manage">
                 <a href="#" className="has-arrow">
-                  <i className="fas fa-users" />
+                  <i className="fas fa-user" />
                   <span>User Manage</span>
                 </a>
 
                 <ul className="sub-menu" aria-expanded="false">
                   <li data-key="user">
                     <Link to={"/user"}>
-                      <i className="fas fa-user" />
+                      <i className="fas fa-user-check" />
                       <span>User</span>
                     </Link>
                   </li>
@@ -60,19 +60,19 @@ function Sidebar(props) {
 
               <li>
                 <a href="#" className="has-arrow" data-key="exam_date">
-                  <i className="fas fa-users" />
+                  <i className=" far fa-calendar-alt" />
                   <span>Exam Date</span>
                 </a>
                 <ul className="sub-menu" aria-expanded="false">
                   <li>
                     <Link to={"/examDate"}>
-                      <i className="fas fa-users" />
+                      <i className=" far fa-calendar-alt" />
                       <span>Exam Date</span>
                     </Link>
                   </li>
                   <li>
                     <Link to={"/trialDate"}>
-                      <i className="fas fa-cogs" />
+                      <i className=" far fa-calendar-check" />
                       <span>TrialDate</span>
                     </Link>
                   </li>
@@ -81,20 +81,20 @@ function Sidebar(props) {
 
               <li>
                 <a href="#" className="has-arrow" data-key="Book">
-                  <i className="fas fa-users" />
+                  <i className="fas fa-book" />
                   <span>Book</span>
                 </a>
 
                 <ul className="sub-menu" aria-expanded="false">
                   <li>
                     <Link to={"/filterExamBook"}>
-                      <i className="fas fa-users" />
+                      <i className="fas fa-book" />
                       <span>Exam Book</span>
                     </Link>
                   </li>
                   <li>
                     <Link to={"/filterLPBook"}>
-                      <i className="fas fa-users" />
+                      <i className="fas fa-book-open" />
                       <span>LP Book</span>
                     </Link>
                   </li>
@@ -102,20 +102,20 @@ function Sidebar(props) {
               </li>
               <li>
                 <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">
-                  <i className="fas fa-users" />
+                  <i className="fas fa-shuttle-van" />
                   <span>Re Attempt</span>
                 </a>
 
                 <ul class="sub-menu" aria-expanded="true">
                   <li>
                     <Link to={"/filterReTrial"}>
-                      <i className="fas fa-users" />
+                      <i className="fas fa-shuttle-van" />
                       <span>Re Trial</span>
                     </Link>
                   </li>
                   <li>
                     <Link to={"/filterReExam"}>
-                      <i className="fas fa-users" />
+                      <i className="fas fa-book" />
                       <span>Re Exam</span>
                     </Link>
                   </li>

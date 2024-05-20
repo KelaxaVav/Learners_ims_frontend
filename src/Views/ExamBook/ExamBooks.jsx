@@ -55,7 +55,7 @@ const ExamBooks = () => {
                   <td>Pass</td>
                   <td>0771234567</td>
                   
-                  <td>
+                  <td className="d-flex justify-content-around">
                     <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
                       <i className="fas fa-pencil-alt"></i>
                     </a>
