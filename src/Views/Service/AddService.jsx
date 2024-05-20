@@ -7,13 +7,13 @@ function AddService() {
     return (
         <div>
             <h4 className="card-title">SERVICES</h4>
-            <div className="col-12 p-0 card bg-whait rounded-0 ">
+            <div className="col-12 p-0 card bg-whit rounded-0 ">
                 <div className="card-body p-2">
                     <div className="row ">
                         <div className="col-lg-6 ">
                             <div className="mb-3">
                                 <label htmlFor="example-name-input" className="form-label">Name</label>
-                                <input className="form-control" type="text" placeholder='@kokiaa' />
+                                <input className="form-control" type="text" placeholder='' />
                             </div>
 
                             <div className="mb-3 m-1 ">
@@ -21,13 +21,13 @@ function AddService() {
                                 <input className="form-control" type="number" placeholder=' 10000' />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="example-description-input" className="form-label">Discription</label>
-                                <textarea className="form-control" type="text" placeholder='Discription' />
+                                <label htmlFor="example-description-input" className="form-label">Description</label>
+                                <textarea className="form-control" type="text" placeholder='Description' />
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <div className="mb-3">
-                                <label htmlFor="example-Account no-input" className="form-label">Catogory</label>
+                                <label htmlFor="example-Account no-input" className="form-label">Category</label>
                                 <div className="hstack gap-3">
                                     <select className="form-select">
                                         <option>Select</option>
@@ -53,8 +53,8 @@ function AddService() {
                                                         <input type="text" className="form-control" id="basicpill-name-input" placeholder="Enter Your Name" />
                                                     </div>
                                                     <div className="form-group m-3">
-                                                        <label className="form-label">Discription</label>
-                                                        <input type="text" className="form-control" id="basicpill-name-input" placeholder="etggghv" />
+                                                        <label className="form-label">Description</label>
+                                                        <input type="text" className="form-control" id="basicpill-name-input" placeholder="" />
                                                     </div>
                                                     <div className="modal-footer">
                                                         <button type="button" className="btn btn-light" data-bs-dismiss="modal">Reset</button>

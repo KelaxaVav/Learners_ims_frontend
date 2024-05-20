@@ -26,14 +26,14 @@ function Sidebar(props) {
 
               <li data-key="user_manage">
                 <a href="#" className="has-arrow">
-                  <i className="fas fa-user" />
+                  <i className="fas fa-users-cog" />
                   <span>User Manage</span>
                 </a>
 
                 <ul className="sub-menu" aria-expanded="false">
                   <li data-key="user">
                     <Link to={"/user"}>
-                      <i className="fas fa-user-check" />
+                      <i className="fas fa-user" />
                       <span>User</span>
                     </Link>
                   </li>

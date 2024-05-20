@@ -25,9 +25,9 @@ function Service() {
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Discrptions</th>
+                                    <th>Descriptions</th>
                                     <th>Price</th>
-                                    <th>Catogory</th>
+                                    <th>Category</th>
                                     <th> Image</th>
                                 </tr>
                             </thead>

@@ -11,7 +11,7 @@ function CreateUser(props) {
                         <div className="col-lg-6 ">
                             <div className="mb-3">
                                 <label htmlFor="example-name-input" className="form-label">Full Name</label>
-                                <input className="form-control" type="text" placeholder='@kokiaa' />
+                                <input className="form-control" type="text" placeholder='' />
                             </div>
 
                             <div className="mb-3 m-1 ">

@@ -19,7 +19,7 @@ const CustomerList = () => {
               <thead>
                 <tr>
                   <th style={{alignContent:'stretch'}}>Date</th>
-                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Aplication Register No</th>
+                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Application Register No</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Name</th>
                   <th style={{alignContent:'stretch'}}>NIC No</th>
                   <th style={{alignContent:'stretch'}}>Address</th>
@@ -28,14 +28,14 @@ const CustomerList = () => {
                   <th style={{alignContent:'stretch'}}>Phone No</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Vehicle Classes</th>
                   <th style={{alignContent:'stretch'}}>Amount</th>
-                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Medical Cretificate No</th>
+                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Medical Certificate No</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Date Proficiency Certificate No</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Driving License No</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}> Vehicle Class</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}> Bus FC card</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}> Date if any</th>
                   <th style={{alignContent:'stretch'}}>Photo</th>
-                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Discerption</th>
+                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Description</th>
 
                 </tr>
               </thead>
