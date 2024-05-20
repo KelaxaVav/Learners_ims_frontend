@@ -28,7 +28,7 @@ function order() {
                                             <tbody>
                                                 <tr>
                                                     <td>001</td>
-                                                    <td>Arany</td>
+                                                    <td>Kopana</td>
                                                     <td>Edinburgh</td>
                                                     <td>Good</td>
                                                     <td>2011/04/25</td>

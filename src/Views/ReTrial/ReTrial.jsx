@@ -53,7 +53,7 @@ const ReTrial = () => {
                 <td>32000</td>
                 <td>2024-05-10</td>
                 
-                <td>
+                <td className="d-flex justify-content-around">
                   <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
                     <i className="fas fa-pencil-alt"></i>
                   </a>

@@ -30,7 +30,7 @@ const TrialDate = () => {
                 <td>2024.11.20</td>
                 <td>100</td>
                 <td>i love u</td> 
-                <td>
+                <td className="d-flex justify-content-around">
                   <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
                     <i className="fas fa-pencil-alt"></i>
                   </a>
@@ -43,6 +43,7 @@ const TrialDate = () => {
           </table>
         </div>
       </div>
+      
     </div>
   </div>
   )
