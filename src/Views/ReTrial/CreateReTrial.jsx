@@ -3,52 +3,66 @@ import React from 'react'
 const CreateReTrial = () => {
   return (
     <>
-    <h4 className="card-title">CREATE ReTrial</h4>
-    <div className="col-12 p-0 card bg-white rounded-0 ">
-        <div className="card-body p-2">
-            <div className="row ">
-               
-                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <label htmlFor="example-balance-input" className="form-label">No</label>
-                    <input className="form-control" type="number" placeholder='Number....' />
+    <div className="row">
+        <div className="col-12">
+            <div className="card">
+                <div className="card-header ">
+                    <div className='d-flex justify-content-between mb-3'>
+                        <h4 className="card-title">CreateReTrial - 2024-05-10</h4>
+                    </div>
+                    <div className="row d-flex justify-content-center ">
+                        <div className="col-lg-3 col-md-4 col-sm-12 mb-2">
+                            {/* <label htmlFor="example-balance-input" className="form-label">Bill No | NIC No </label> */}
+                            <input className="form-control" type="text" placeholder='Search...' />
+                        </div>
+                        <div className="col-lg-2 col-md-3 col-sm-12 mb-2 d-flex justify-content-center justify-content-md-between ">
+                            <button type="button" className="btn btn-primary waves-effect waves-light">
+                                Search
+                            </button>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Name</label>
-                        <input className="form-control" type="text" placeholder='Name...' />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Class</label>
-                        <input className="form-control" type="text" placeholder='Class...' />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <label htmlFor="example-balance-input" className="form-label">NIC Number</label>
-                    <input className="form-control" type="text" placeholder=' NIC Number....' />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">TP Number</label>
-                        <input className="form-control" type="number" placeholder=' Phone Number....' />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                        <label htmlFor="example-balance-input" className="form-label">Payment</label>
-                        <input className="form-control" type="number" placeholder='Payment...' />
-                </div>
-             
-                <div className="row mt-3 ">
-                    <div className=" d-flex justify-content-end gap-2">
-                        <button type="button" className=" d-none btn btn-success waves-effect waves-light w-sm">
-                            <i className="d-block font-size-8"></i> Edit
-                        </button>
-                        <button type="button" className="d-none btn btn-danger waves-effect waves-light w-sm">
-                            <i className=" d-block font-size-8"></i> Delete
-                        </button>
-                        <button type="button" className=" btn btn-secondary waves-effect waves-light w-sm">
-                            <i className=" d-block font-size-8"></i> Reset
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-primary waves-effect waves-light w-sm" >
-                            Submit
-                        </button>
+                <div className="card-body table-responsive">
+                    <table id="dataTable" className="table table-bordered table-responsive nowrap w-100 mt-4">
+                        <thead>
+                            <tr>
+                                <th className='d-flex justify-content-around ' style={{ alignContent: 'stretch' }}><input className="form-check-input" type="checkbox" id="formCheck1" /><span >Check</span></th>
+                                <th style={{ alignContent: 'stretch' }}>No</th>
+                                <th style={{ alignContent: 'stretch' }}>Name</th>
+                                <th style={{ alignContent: 'stretch' }}>NIC No</th>
+                                <th style={{ alignContent: 'stretch' }}>BILL No</th>
+                                <th style={{ alignContent: 'stretch' }}>Class</th>
+                                <th style={{ alignContent: 'stretch' }}>PIV</th>
+                                <th style={{ alignContent: 'stretch' }}>Status</th>
+                                <th style={{ alignContent: 'stretch' }}>TP Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className='text-center'><input className="form-check-input" type="checkbox" id="formCheck1" /></td>
+                                <td>01</td>
+                                <td>Kopana panchalingam</td>
+                                <th>962255315V</th>
+                                <th>1000</th>
+                                <td>A1,B,B1</td>
+                                <th>5000.00</th>
+                                <td>Pass</td>
+                                <td>0771234567</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div className="row mt-3 ">
+                        <div className=" d-flex justify-content-end gap-2">
+                            <button
+                                type="button"
+                                className="btn btn-primary waves-effect waves-light w-sm "  >
+                                Submit
+                            </button>
+
+                        </div>
                     </div>
                 </div>
             </div>
