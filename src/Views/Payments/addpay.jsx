@@ -13,31 +13,25 @@ function addPay() {
             <div className="row">
                 <div class="col-xl-4 col-md-6">
                     <div class="form-group mb-3">
-                        <label class="form-label">Select Payment Method</label>
+                        <label class="form-label">Select Payment Type</label>
                         <select required class="form-control form-select">
-                            <option value="">Select Payment Method</option>
-                            <option value="wr">Cash</option>
-                            <option value="ph">Credit Card</option>
-                            <option value="cy">Cheque</option>
+                            <option value="">Select Payment Type</option>
+                            <option value="wr">Re Exam</option>
+                            <option value="ph">Re Trial</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="form-group mb-3">
-                        <label class="form-label">Select Order</label>
-                        <select required class="form-control form-select">
-                            <option value="">Select Order</option>
-                            <option value="wr">1</option>
-                            <option value="ph">2</option>
-                            <option value="cy">3</option>
-                        </select>
+                        <th style={{ alignContent: 'stretch' }}>Name</th>
+                        <input className="form-control" type="text" placeholder='' />
                     </div>
                 </div>
                 <div className="row">
                     <div class="col-xl-4 col-md-6">
                         <div class="form-group mb-3">
                             <label>Amount</label>
-                            <input type="number" required
+                            <input type="" required
                                 data-pristine-required-message="Please Enter Amount"
                                 class="form-control" placeholder="Enter Amount" />
                         </div>
@@ -45,9 +39,17 @@ function addPay() {
                     <div class="col-xl-4 col-md-6">
                         <div class="form-group mb-3">
                             <label>Total Amount</label>
-                            <input type="number" required
+                            <input type="" required
                                 data-pristine-required-message="Please Enter Total Amount"
                                 class="form-control" placeholder="Enter Total Amount" />
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Pay Amount</label>
+                            <input type="" required
+                                data-pristine-required-message="Please Enter Pay Amount"
+                                class="form-control" placeholder="Enter Pay Amount" />
                         </div>
                     </div>
                 </div>

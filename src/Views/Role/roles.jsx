@@ -76,12 +76,12 @@ function roles(props) {
                   <td>Admin</td>
                   <td>All permission allow</td>
                   <td className="d-flex justify-content-around">
-                      <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
-                        <i className="fas fa-pencil-alt"></i>
-                      </a>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="trash">
-                        <i className=" fas fa-trash"></i>
-                      </a>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
+                      <i className="fas fa-pencil-alt"></i>
+                    </a>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Trash">
+                      <i className="fas fa-trash"style={{color:'red'}}></i>
+                    </a>
                   </td>
                 </tr>
 
@@ -90,14 +90,14 @@ function roles(props) {
                   <td>Staff</td>
                   <td>Limited Access</td>
                   <td className="d-flex justify-content-around">
-                      <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
-                        <i className="fas fa-pencil-alt"></i>
-                      </a>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="trash">
-                        <i className=" fas fa-trash"></i>
-                      </a>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
+                      <i className="fas fa-pencil-alt"></i>
+                    </a>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Trash">
+                      <i className="fas fa-trash"style={{color:'red'}}></i>
+                    </a>
                   </td>
-                </tr>
+                </tr> 
               </tbody>
             </table>
           </div>

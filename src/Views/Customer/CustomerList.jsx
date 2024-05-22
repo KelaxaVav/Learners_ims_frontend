@@ -36,6 +36,7 @@ const CustomerList = () => {
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}> Date if any</th>
                   <th style={{alignContent:'stretch'}}>Photo</th>
                   <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Description</th>
+                  <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Action</th>
 
                 </tr>
               </thead>
