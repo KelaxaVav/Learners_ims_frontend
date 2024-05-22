@@ -39,7 +39,7 @@ function users(props) {
                           <i className="fas fa-pencil-alt"></i>
                         </a>
                         <a className="btn btn-outline-secondary btn-sm edit" title="trash">
-                          <i className=" fas fa-trash"></i>
+                        <i className="fas fa-trash" style={{color:'red'}}></i>
                         </a>
                   </td>
                 </tr>
