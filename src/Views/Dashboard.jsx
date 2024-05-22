@@ -30,9 +30,9 @@ function Dashboard(props) {
                             <div className="card-body">
                                 <div className="row align-items-center">
                                     <div className="col-6">
-                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">My Wallet</span>
+                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Total payment</span>
                                         <h4 className="mb-3">
-                                            $<span className="counter-value" data-target="100">0</span>
+                                            <span className="counter-value" >25000.00</span>
                                         </h4>
                                     </div>
                                     <div className="col-6">
@@ -53,9 +53,9 @@ function Dashboard(props) {
                             <div className="card-body">
                                 <div className="row align-items-center">
                                     <div className="col-6">
-                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Number of Agent</span>
+                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Re Exam Payment</span>
                                         <h4 className="mb-3">
-                                            <span className="counter-value" data-target={6258}>0</span>
+                                            <span className="counter-value">12000.00</span>
                                         </h4>
                                     </div>
                                     <div className="col-6">
@@ -76,9 +76,9 @@ function Dashboard(props) {
                             <div className="card-body">
                                 <div className="row align-items-center">
                                     <div className="col-6">
-                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Number of Moderators</span>
+                                        <span className="text-muted mb-3 lh-1 d-block text-truncate">Re Trial Payment</span>
                                         <h4 className="mb-3">
-                                            $<span className="counter-value" data-target="500">0</span>
+                                            <span className="counter-value" >1220.00</span>
                                         </h4>
                                     </div>
                                     <div className="col-6">

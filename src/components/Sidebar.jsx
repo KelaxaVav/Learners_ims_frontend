@@ -101,12 +101,12 @@ function Sidebar(props) {
                 </ul>
               </li>
               <li>
-                <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">
+                <a href="#" className="has-arrow" data-key="t-level-1-2">
                   <i className="fas fa-shuttle-van" />
                   <span>Re Attempt</span>
                 </a>
 
-                <ul class="sub-menu" aria-expanded="true">
+                <ul className="sub-menu" aria-expanded="true">
                   <li>
                     <Link to={"/filterReTrial"}>
                       <i className="fas fa-shuttle-van" />

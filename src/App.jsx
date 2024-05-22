@@ -10,11 +10,8 @@ import Permission from './Views/Permission/permissions'
 import Setting from './Views/settings/Settings'
 import User from './Views/User/users'
 import AddUser from './Views/User/CreateUser'
-import Service from './Views/Service/Service';
-import AddService from './Views/Service/AddService';
 import Coupon from './Views/Coupon/coupon'
 import AddCoupon from './Views/Coupon/add'
-import Order from './Views/Order/order'
 import Payments from './Views/Payments/payments'
 import AddPay from './Views/Payments/addPay'
 import GestRoute from './utils/Route/GestRoute';
@@ -170,10 +167,6 @@ function App() {
 
           } />
 
-          <Route path="/order" element={
-            <Order />
-          } />
-
           <Route path="/payments" element={
             <Payments/>
           } />
@@ -182,20 +175,6 @@ function App() {
           <Route path="/addPay" element={
             <AddPay/>
           } />
-
-
-         
-         
-          
-          <Route path="/service" element={
-            <Service />
-          } />
-
-          <Route path="/addService" element={
-            <AddService />
-          } />
-
-
 
           <Route path="/setting" element={
             // <ProtectedRoute type={[ACCOUNT_TYPE.ADMIN]}>
