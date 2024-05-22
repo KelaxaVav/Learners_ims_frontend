@@ -75,17 +75,13 @@ function roles(props) {
                   <td>001</td>
                   <td>Admin</td>
                   <td>All permission allow</td>
-                  <td>
-                    <td>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
-                        <i className="fas fa-pencil-alt"></i>
-                      </a>
-                    </td>
-                    <td>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="trash">
-                        <i className=" fas fa-trash"></i>
-                      </a>
-                    </td>
+                  <td className="d-flex justify-content-around">
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
+                      <i className="fas fa-pencil-alt"></i>
+                    </a>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Trash">
+                      <i className="fas fa-trash"style={{color:'red'}}></i>
+                    </a>
                   </td>
                 </tr>
 
@@ -93,19 +89,15 @@ function roles(props) {
                   <td>002</td>
                   <td>Staff</td>
                   <td>Limited Access</td>
-                  <td>
                   <td className="d-flex justify-content-around">
-                      <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
-                        <i className="fas fa-pencil-alt"></i>
-                      </a>
-                    </td>
-                    <td>
-                      <a className="btn btn-outline-secondary btn-sm edit" title="trash">
-                        <i className=" fas fa-trash"></i>
-                      </a>
-                    </td>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
+                      <i className="fas fa-pencil-alt"></i>
+                    </a>
+                    <a className="btn btn-outline-secondary btn-sm edit" title="Trash">
+                      <i className="fas fa-trash"style={{color:'red'}}></i>
+                    </a>
                   </td>
-                </tr>
+                </tr> 
               </tbody>
             </table>
           </div>

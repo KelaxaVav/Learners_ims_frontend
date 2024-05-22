@@ -22,6 +22,8 @@ const TrialDate = () => {
                 <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Trial Date</th>
                 <th style={{alignContent:'stretch'}}>Limit Person</th>
                 <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Description</th>
+                <th style={{alignContent:'stretch'}}>Action</th>
+                
               </tr>
             </thead>
             <tbody>
