@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import useScript from '../hooks/useScript';
+import { Link } from 'react-router-dom';
 
 function Dashboard(props) {
     // useScript("assets/js/pages/dashboard.init.js");
@@ -121,6 +122,33 @@ function Dashboard(props) {
 
 
             </div>
+            <div className="row">
+          <div className="col-4">
+            <div className="card">
+              <div className="card-header d-flex justify-content-between">
+                <h4 className="card-title">Specific Customer Details</h4>
+              </div>
+              <div className="card-body table-responsive">
+                <div className="row col-12">
+                  <div className="col-12 mb-3">
+                    <label htmlFor="example-name-input" className="form-label">
+                      NIC.No | Register.No
+                    </label>
+                    <input type="text" className='form-control' placeholder="Search..."/>
+                  </div>
+                 
+                  <div className="col-12 text-end  ">
+                    <Link to="/profile">
+                      <button type="button" className="btn btn-primary waves-effect waves-light">
+                        Search
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
             {/* container-fluid */}
         </>
     )

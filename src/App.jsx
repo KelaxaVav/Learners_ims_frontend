@@ -37,6 +37,7 @@ import FilterReExam from './Views/ReAttempt/FilterReExam';
 import ReTrial from './Views/ReTrial/ReTrial';
 import CreateReTrial from './Views/ReTrial/CreateReTrial';
 import FilterReTrial from './Views/ReTrial/FilterReTrial';
+import Profile from './Views/Customer/profile';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -79,6 +80,10 @@ function App() {
 
           <Route path="/createCustomer" element={
             <CreateCustomer/>
+          } />
+
+          <Route path="/profile" element={
+            <Profile/>
           } />
 
           <Route path="/vehicleClass" element={
