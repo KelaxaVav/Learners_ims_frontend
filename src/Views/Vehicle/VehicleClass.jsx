@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
                 <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Discerption</th>
                 <th style={{alignContent:'stretch'}}>Amount</th>
                 <th style={{alignContent:'stretch'}}>BIV Amount</th>
+                <th style={{alignContent:'stretch'}}>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -30,8 +31,8 @@ import { Link } from 'react-router-dom';
                 <td>abcdefghijklmnopqrstuvw</td>
                 <td>35000</td> 
                 <td>32000</td> 
-                <td>
-                  <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
+                <td >
+                  <a className="btn btn-outline-secondary btn-sm edit m-3" title="Edit">
                     <i className="fas fa-pencil-alt"></i>
                   </a>
                   <a className="btn btn-outline-secondary btn-sm edit" title="Trash">

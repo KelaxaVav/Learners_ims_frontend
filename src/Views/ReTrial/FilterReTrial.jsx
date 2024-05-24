@@ -13,7 +13,7 @@ const FilterReTrial = () => {
                 <div className="card-body table-responsive">
                     <div className="row col-6">
                         <div className="col-12 mb-2">
-                            <label htmlFor="example-name-input" className="form-label">Re Exam</label>
+                            <label htmlFor="example-name-input" className="form-label">Exam</label>
                             <select className="form-select">
                                 <option>Select</option>
                                 <option>2024-05-10</option>

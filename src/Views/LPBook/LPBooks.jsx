@@ -8,12 +8,17 @@ const LPBooks = () => {
         <div className="card">
           <div className="card-header ">
             <div className='d-flex justify-content-between mb-3'>
-              <h4 className="card-title">LP Book - 2024-05-20</h4>
-              <Link to="/createLPBook">
-                <button type="button" className="btn btn-primary waves-effect waves-light">
-                  Create LP Book +
-                </button>
-              </Link>
+              <h4 className="card-title">LP Book</h4>
+              <div class="btn-group dropstart">
+                    {/* <a class="btn btn-link text-muted py-1 font-size-16 shadow-none" href="#" role="button"> */}
+                    <button type="button" className="btn btn-primary waves-effect waves-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">  Add To Trial +</button>
+                    {/* </a> */}
+                  
+                    <ul class="dropdown-menu dropdownmenu-success">
+                        <li> <Link to="/createLPBook" className="dropdown-item"> Trial </Link> </li>
+                        <li> <Link to="/createLPBook" className="dropdown-item"> Re Trial </Link> </li>
+                    </ul>
+                </div>
             </div>
             <div className="row d-flex justify-content-center ">
               <div className="col-lg-3 col-md-4 col-sm-12 mb-2">
@@ -30,6 +35,11 @@ const LPBooks = () => {
 
           </div>
           <div className="card-body table-responsive">
+          <div className='d-flex justify-content-between mb-3'>
+              <h4 className="card-title">Exam Date - 2024-05-20</h4>
+              <h4 className="card-title">Trial Date - 2024-05-20</h4>
+              
+            </div>
             <table id="dataTable" className="table table-bordered table-responsive nowrap w-100 mt-4">
               <thead>
                 <tr>
@@ -41,6 +51,7 @@ const LPBooks = () => {
                   <th style={{ alignContent: 'stretch' }}>BILL No</th>
                   <th style={{ alignContent: 'stretch' }}>Status</th>
                   <th style={{ alignContent: 'stretch' }}>TP Number</th>
+                  <th style={{ alignContent: 'stretch' }}>Trial Type</th>
                   <th style={{ alignContent: 'stretch' }}>Action</th>
                 </tr>
               </thead>
@@ -54,6 +65,7 @@ const LPBooks = () => {
                   <th>1000</th>
                   <td>Pass</td>
                   <td>0771234567</td>
+                  <td>Trial</td>
 
                   <td className="d-flex justify-content-around">
                     <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
