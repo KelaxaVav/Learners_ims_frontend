@@ -20,6 +20,7 @@ const ExamDates = () => {
                   <tr>
                     <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Exam Date</th>
                     <th style={{alignContent:'stretch'}}>Limit Person</th>
+                    <th style={{alignContent:'stretch'}}>Exam Type</th>
                     <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Description</th>
                     <th style={{alignContent:'stretch'}}>Action</th>
 
@@ -29,6 +30,7 @@ const ExamDates = () => {
                   <tr>
                     <td>2024.05.20</td>
                     <td>100</td>
+                    <td>Regular</td> 
                     <td>hi</td> 
                     <td className="d-flex justify-content-around">
                       <a className="btn btn-outline-secondary btn-sm edit" title="Edit">

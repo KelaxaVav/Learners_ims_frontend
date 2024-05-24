@@ -119,6 +119,12 @@ function Sidebar(props) {
                       <span>Re Exam</span>
                     </Link>
                   </li>
+                  <li>
+                    <Link to={"/filterReExam"}>
+                      <i className="fas fa-book" />
+                      <span>Oral Exam</span>
+                    </Link>
+                  </li>
                 </ul>
               </li>
 

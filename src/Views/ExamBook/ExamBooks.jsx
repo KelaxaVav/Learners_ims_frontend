@@ -9,11 +9,17 @@ const ExamBooks = () => {
           <div className="card-header ">
             <div className='d-flex justify-content-between mb-3'>
               <h4 className="card-title">ExamBook - 2024-05-10</h4>
-              <Link to="/createExamBook">
-                <button type="button" className="btn btn-primary waves-effect waves-light">
-                Create ExamBook +
-                </button>
-              </Link>
+                <div class="btn-group dropstart">
+                    {/* <a class="btn btn-link text-muted py-1 font-size-16 shadow-none" href="#" role="button"> */}
+                    <button type="button" className="btn btn-primary waves-effect waves-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">  Add To Exam +</button>
+                    {/* </a> */}
+                  
+                    <ul class="dropdown-menu dropdownmenu-success">
+                        <li> <Link to="/createExamBook" className="dropdown-item"> Direct Exam </Link> </li>
+                        <li> <Link to="/createExamBook" className="dropdown-item"> Re Exam </Link> </li>
+                        <li> <Link to="/createExamBook" className="dropdown-item"> Extern </Link> </li>
+                    </ul>
+                </div>
             </div>
             <div className="row d-flex justify-content-center ">
               <div className="col-lg-3 col-md-4 col-sm-12 mb-2">
@@ -41,6 +47,7 @@ const ExamBooks = () => {
                   <th style={{alignContent:'stretch'}}>BILL No</th>
                   <th style={{alignContent:'stretch'}}>Status</th>
                   <th style={{alignContent:'stretch'}}>TP Number</th>
+                  <th style={{alignContent:'stretch'}}>Exam Type</th>
                   <th style={{alignContent:'stretch'}}>Action</th>
                 </tr>
               </thead>
@@ -54,6 +61,7 @@ const ExamBooks = () => {
                   <th>1000</th>
                   <td>Pass</td>
                   <td>0771234567</td>
+                  <td>Direct</td>
                   
                   <td className="d-flex justify-content-around">
                     <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
