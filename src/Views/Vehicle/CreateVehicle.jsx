@@ -27,7 +27,7 @@ const CreateVehicle = () => {
                                         <input className="form-control" type="text" placeholder='' />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="example-balance-input" className="form-label">BIV Amount</label>
+                                        <label htmlFor="example-balance-input" className="form-label">PIV Amount</label>
                                         <input className="form-control" type="text" placeholder='' />
                                     </div>
                                 </div>
