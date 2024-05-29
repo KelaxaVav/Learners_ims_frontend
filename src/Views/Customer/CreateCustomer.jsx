@@ -70,24 +70,24 @@ import React from 'react'
                         <input type="checkbox" id="square-switch2" switch="info" checked />
                         <label for="square-switch2" data-on-label="Yes"
                             data-off-label="No"></label>
-                    </div>
+                    </div>                  
                     <div class="accordion-item">
-                                                <h2 class="accordion-header" id="flush-headingOne">
-                                                
-                                                    <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                                                        Accordion Item #1
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body text-muted">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
-                                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                                                        single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                                                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice.</div>
-                                                </div>
-                                            </div>
+                        <h2 class="accordion-header" id="flush-headingOne">
+                        
+                            <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                                Accordion Item #1
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body text-muted">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                                single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                                anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice.</div>
+                        </div>
+                    </div>
                  
                 </div>
                 <div className="col-lg-6">
