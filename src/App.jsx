@@ -66,6 +66,11 @@ function App() {
             <AddUser />
           } />
 
+          <Route path="/editUser" element={
+            <AddUser/>
+          } />
+
+
           <Route path="/role" element={
             <Roles />
           } />
