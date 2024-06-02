@@ -50,7 +50,7 @@ const CreateTrialDate = () => {
   return (
     <>
         <h4 className="card-title">Create Trial Date</h4>
-        <div className="col-12 p-0 card bg-white rounded-0 ">
+        <div className="col-12 p-0 card  rounded-0 ">
             <div className="card-body p-2">
                 <div className="row ">
                     <div className="col-lg-6 ">
