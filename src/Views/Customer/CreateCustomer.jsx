@@ -4,105 +4,166 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure you have Bootstrap CSS
+import { Controller, useForm } from 'react-hook-form';
 
 const options = [
-    { value: 'a1', label: 'A1' },
-    { value: 'b', label: 'B' },
-    { value: 'b1', label: 'B1' },
+    {value:"A1", label:"A1"},           
+   {value: "A", label: "A"},           
+    {value:"B1", label:"B1"},           
+   {value: "B", label: "B"},           
+    {value:"C1", label:"C1"},           
+   {value: "C", label: "C"},           
+    {value:"CE", label:"CE"},           
+    {value:"D1", label:"D1"},           
+   {value: "D", label: "D"},           
+    {value:"DE", label:"DE"},           
+    {value:"G1", label:"G1"},           
+   {value: "G", label: "G"},           
+  {value:  "J", label:  "J"},  
 ];
 
+
 const CreateCustomer = () => {
+    const [extentChecked , setExtentChecked] = useState(false); 
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        control,
+        reset,
+        setValue,
+        resetField,
+        getValues,
+        formState: {errors },
+    } = useForm();
+
     const [selectedOptions, setSelectedOptions] = useState([]);
-    const [startDate, setStartDate] = useState(new Date());
 
     const handleChange = (selected) => {
         setSelectedOptions(selected);
     };
+
+    const handleChangeExtent =  (e) => {
+        const  checked =  e.target.checked;
+        setExtentChecked(checked);
+        console.log(extentChecked);
+      };
+
+
+    const onSubmitData =(data) =>{
+        if(data.extent){
+
+
+        }
+
+
+        console.log(data);
+    }
 
     return (
         <>
             <h4 className="card-title">CREATE Customer</h4>
             <div className="col-12 p-0 card rounded-0">
                 <div className="card-body p-2">
+                    <form onSubmit={handleSubmit(onSubmitData)}>
                     <div className="row">
                         <div className="col-sm-6 mb-3">
                             <label htmlFor="name-input" className="form-label">Name</label>
-                            <input className="form-control" type="text" id="name-input" placeholder='' />
+                            <input className="form-control" type="text" id="name-input" placeholder=''  {...register("full_name", {required: true })} />
                         </div>
                         <div className="col-sm-6 mb-3">
                             <label htmlFor="nic-input" className="form-label">NIC No</label>
-                            <input className="form-control" type="text" id="nic-input" placeholder='' />
+                            <input className="form-control" type="text" id="nic-input" placeholder=''  {...register("nic", {required: true })} />
                         </div>
                         <div className="col-sm-6 mb-3">
                             <label htmlFor="address-input" className="form-label">Address</label>
-                            <textarea id="address-input" className="form-control" rows="1" placeholder="Enter your Address"></textarea>
+                            <textarea id="address-input" className="form-control" rows="1" placeholder="Enter your Address"  {...register("address", {required: true })}></textarea>
                         </div>
                         <div className="col-sm-6 mb-2 d-grid">
                             <label htmlFor="dob-input" className="form-label mb-0 p-0">Date of Birth</label>
-                            <DatePicker className="form-control" selected={startDate} onChange={(date) => setStartDate(date)} id="dob-input" />
+                            <input className="form-control" type="date" id="nic-input" placeholder=''  {...register("dob", {required: true })} />
+
+                            {/* <DatePicker className="form-control" selected={startDate}  {...register("dob", {required: true })} /> */}
                         </div>
 
                         <div className="col-sm-6 mb-3">
                             <label htmlFor="personal-phone-input" className="form-label">Personal Phone No</label>
-                            <input className="form-control" type="text" id="personal-phone-input" placeholder='' />
+                            <input className="form-control" type="text" id="personal-phone-input" placeholder=''  {...register("personal_pno", {required: true })} />
                         </div>
                         <div className="col-sm-6 mb-3">
                             <label htmlFor="phone-input" className="form-label">Phone No</label>
-                            <input className="form-control" type="text" id="phone-input" placeholder='' />
+                            <input className="form-control" type="text" id="phone-input" placeholder=''  {...register("secondary_pno", {required: true })}/>
                         </div>
-
-
-
-
-                        <div className="mb-5 w-25">
+                        <div className="col-sm-6 mb-3">
+                                            
+                                                <h5 className="font-size-14 mb-1">Vehicle Class</h5>
+                                                <Controller
+                                                    name="vehicle_class"
+                                                    control={control}
+                                                    {...register("vehicle_class")}
+                                                    render={({ field }) => (
+                                                <Select
+                                                    {...field}
+                                                    isMulti
+                                                    value={selectedOptions}
+                                                    onChange={handleChange}
+                                                    options={options}
+                                                    className="basic-multi-select form-control"
+                                                    classNamePrefix="select"
+                                                />  
+                                             )}
+                                                />
+                                    </div>
+                        <div className="col-sm-6 mb-3 w-25">
                             <label htmlFor="example-Account no-input" className="form-label">ImageUpload</label>
-                            <input className="form-control" type="file" placeholder='' />
+                            {/* <input className="form-control" type="file" placeholder='' {...register("image", {required: true })} /> */}
 
                         </div>
-
-
-
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="flush-headingOne"></h2>
                             <div className=" mb-2">
-                                <h6 className="fw-bold fs-5 ">Medical Detail</h6>
+                                <h6 className="fw-bold fs-6 ">Medical Detail</h6>
                                 <div className="row">
                                     <div className="col">
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">Certificate No</h5>
-                                                <input className="form-control" type="text" placeholder='' />
+                                                <input className="form-control" type="text" placeholder=''{...register("medical_no", {required: true })} />
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="col d-grid">
                                         <h5 className="font-size-14 mb-0">Date</h5>
-                                        <DatePicker className="form-control" selected={startDate} onChange={(date) => setStartDate(date)} id="dob-input" />
+                            <input className="form-control" type="date" id="nic-input" placeholder=''  {...register("medical_date", {required: true })} />
+
+                                        {/* <DatePicker className="form-control" selected={startDate} onChange={(date) => setStartDate(date)} id="dob-input" {...register("medical_date", {required: true })} /> */}
                                     </div>
                                     <div className="col">
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">Note</h5>
-                                                <textarea className="form-control" name="" id="" rows="1"></textarea>
+                                                <textarea className="form-control" name="" id="" rows="1" {...register("medical_note", {required: true })}></textarea>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <button className="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                            <h6 className="fw-bold fs-5">Extent Detail</h6>
+
                                 <div className="square-switch">
-                                    <input type="checkbox" id="square-switch2" switch="info" defaultChecked />
+                                    <input  {...register("extent")} onChange={handleChangeExtent}  checked={extentChecked} type="checkbox" id="square-switch2" switch="info" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne" />
                                     <label htmlFor="square-switch2" data-on-label="Yes" data-off-label="No"></label>
+
                                 </div>
-                            </button>
                             <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <h6 className="fw-bold fs-5">License Detail</h6>
+                                <h6 className="fw-bold fs-6">License Detail</h6>
                                 <div className="row">
                                     <div className="col">
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">License No</h5>
-                                                <input className="form-control" type="text" placeholder='' />
+                                                <input className="form-control" type="text" placeholder='' {...register("license_no", extentChecked? {required:true} : {} )}/>
                                             </li>
                                         </ul>
                                     </div>
@@ -110,13 +171,21 @@ const CreateCustomer = () => {
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">Vehicle Class</h5>
+                                                <Controller
+                                                    name="vehicle_class_old"
+                                                    control={control}
+                                                    {...register("vehicle_class_old")}
+                                                    render={({ field }) => (
                                                 <Select
+                                                    {...field}
                                                     isMulti
                                                     value={selectedOptions}
                                                     onChange={handleChange}
                                                     options={options}
                                                     className="basic-multi-select form-control"
                                                     classNamePrefix="select"
+                                                />  
+                                             )}
                                                 />
                                             </li>
                                         </ul>
@@ -125,7 +194,7 @@ const CreateCustomer = () => {
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">Note</h5>
-                                                <textarea className="form-control" name="" id="" rows="1"></textarea>
+                                                <textarea className="form-control" name="note" {...register("extent_note")} id="" rows="1"></textarea>
                                             </li>
                                         </ul>
                                     </div>
@@ -138,12 +207,13 @@ const CreateCustomer = () => {
                                 <button type="button" className="btn btn-secondary waves-effect waves-light w-sm">
                                     <i className="d-block font-size-8"></i> Reset
                                 </button>
-                                <button type="button" className="btn btn-primary waves-effect waves-light w-sm">
+                                <button type="submit" className="btn btn-primary waves-effect waves-light w-sm">
                                     Submit
                                 </button>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </>
