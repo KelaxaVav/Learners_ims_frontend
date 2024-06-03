@@ -5,6 +5,7 @@ import AlertDialog from '../../utils/AlertDialog/AlertDialog';
 import { Http } from '../../services/api';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { CreateSuccessful } from '../../utils/AlertDialog';
 
 function permissions(props) {
 
@@ -118,8 +119,22 @@ function permissions(props) {
     }
   };
 
-  const onSubmitPermission = (data) => {
-console.log(data);
+  const onSubmitPermission = async (data) => {
+    try {
+      // Create Role
+      const response =  await Http.post('/permission',data)
+      if (response.data.status === true) {  
+        handleReset();
+        await CreateSuccessful();
+        handleCloseModal();
+      } else {
+        await AlertDialog({ title: "Created!", message: error?.response?.data?.meta?.message ?? "Permission has not been created.", icon: "error" });
+
+      }
+    } catch (error) {
+      console.error(error);
+      await AlertDialog({ title: "Created!", message: error?.response?.data?.meta?.message ?? "Permission has not been created.", icon: "error" });
+    }
 
   }
 
@@ -187,8 +202,8 @@ console.log(data);
 										</div>
 									
 										<div className="col-2 ">
-											<label htmlFor="example-balance-input" className="form-label">Update</label>
-											<input  className="form-check-input mt-3"  type="checkbox"   {...register("update",{require : true})}/>
+											<label htmlFor="example-balance-input d-block" className="form-label">Edit</label>
+											<input  className="form-check-input d-block mt-3"  type="checkbox"   {...register("edit",{require : true})}/>
 										</div>     
 										<div className="col-2  ">
 											<label htmlFor="example-balance-input d-block" className="form-label">Delete</label>
@@ -223,7 +238,7 @@ console.log(data);
                   <tr className="text-center">
                     <td>Modules</td>
                     <td>Add</td>
-                    <td>Update</td>
+                    <td>Edit</td>
                     <td>Delete</td>
                     <td>View</td>
                   </tr>
