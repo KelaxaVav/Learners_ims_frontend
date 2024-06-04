@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import DatePicker from "react-datepicker";
-
-import "react-datepicker/dist/react-datepicker.css";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure you have Bootstrap CSS
 import { Controller, useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
+import { CreateFailed, CreateSuccessful } from '../../utils/AlertDialog';
+import AlertDialog from '../../utils/AlertDialog/AlertDialog';
+import { Http } from '../../services/api';
 
 const options = [
     {value:"A1", label:"A1"},           
@@ -22,8 +23,13 @@ const options = [
   {value:  "J", label:  "J"},  
 ];
 
-
 const CreateCustomer = () => {
+    
+    // const { state } = useLocation();
+
+
+// const initialValuesArray = state?.vehicle_class?.split(",");
+
     const [extentChecked , setExtentChecked] = useState(false); 
 
     const {
@@ -38,11 +44,10 @@ const CreateCustomer = () => {
         formState: {errors },
     } = useForm();
 
-    const [selectedOptions, setSelectedOptions] = useState([]);
+    const [selectedVehicle_class, setSelectedVehicle_class] = useState([]);
+    const [selectedVehicle_class_old, setSelectedVehicle_class_old] = useState([]);
 
-    const handleChange = (selected) => {
-        setSelectedOptions(selected);
-    };
+   
 
     const handleChangeExtent =  (e) => {
         const  checked =  e.target.checked;
@@ -50,21 +55,27 @@ const CreateCustomer = () => {
         console.log(extentChecked);
       };
 
+    const onSubmitData =async (data) =>{
+         data.vehicle_class = data.vehicle_class.map((x)=> ({value: x.value, label: x.label}))
+        // console.log(vehicle);
+        console.log(data.vehicle_class);
+        
+        const response = await Http.post("/customer", data)
+        .then( async (res)=>{
 
-    const onSubmitData =(data) =>{
-        if(data.extent){
+            await CreateSuccessful();
 
+        }).catch( async (error)=>{
+            console.log(error);
+            await AlertDialog({ title: "Failed!", message: error?.response?.data?.meta?.message ??"Customer has not been created.", icon: "error" });
+        });
 
-        }
-
-
-        console.log(data);
     }
 
     return (
         <>
             <h4 className="card-title">CREATE Customer</h4>
-            <div className="col-12 p-0 card rounded-0">
+            <div   className="col-12 p-0 card rounded-0">
                 <div className="card-body p-2">
                     <form onSubmit={handleSubmit(onSubmitData)}>
                     <div className="row">
@@ -80,7 +91,7 @@ const CreateCustomer = () => {
                             <label htmlFor="address-input" className="form-label">Address</label>
                             <textarea id="address-input" className="form-control" rows="1" placeholder="Enter your Address"  {...register("address", {required: true })}></textarea>
                         </div>
-                        <div className="col-sm-6 mb-2 d-grid">
+                        <div className="col-sm-6 mb-2 ">
                             <label htmlFor="dob-input" className="form-label mb-0 p-0">Date of Birth</label>
                             <input className="form-control" type="date" id="nic-input" placeholder=''  {...register("dob", {required: true })} />
 
@@ -96,25 +107,26 @@ const CreateCustomer = () => {
                             <input className="form-control" type="text" id="phone-input" placeholder=''  {...register("secondary_pno", {required: true })}/>
                         </div>
                         <div className="col-sm-6 mb-3">
-                                            
-                                                <h5 className="font-size-14 mb-1">Vehicle Class</h5>
-                                                <Controller
-                                                    name="vehicle_class"
-                                                    control={control}
-                                                    {...register("vehicle_class")}
-                                                    render={({ field }) => (
-                                                <Select
-                                                    {...field}
-                                                    isMulti
-                                                    value={selectedOptions}
-                                                    onChange={handleChange}
-                                                    options={options}
-                                                    className="basic-multi-select form-control"
-                                                    classNamePrefix="select"
-                                                />  
-                                             )}
-                                                />
-                                    </div>
+                            <h5 className="font-size-14 mb-1">Vehicle Class</h5>
+                            <Controller
+                                name="vehicle_class"
+                                control={control}
+                                render={({ field }) => (
+                                    <Select
+                                        {...field}
+                                        isMulti
+                                        value={selectedVehicle_class}
+                                        onChange={(selected)=> {
+                                            setSelectedVehicle_class(selected);
+                                            setValue("vehicle_class", selected ? selected : null)
+                                        }}
+                                        options={options}
+                                        className="basic-multi-select form-control"
+                                        classNamePrefix="select"
+                                    />  
+                                )}
+                            />
+                        </div>
                         <div className="col-sm-6 mb-3 w-25">
                             <label htmlFor="example-Account no-input" className="form-label">ImageUpload</label>
                             {/* <input className="form-control" type="file" placeholder='' {...register("image", {required: true })} /> */}
@@ -123,7 +135,7 @@ const CreateCustomer = () => {
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="flush-headingOne"></h2>
                             <div className=" mb-2">
-                                <h6 className="fw-bold fs-6 ">Medical Detail</h6>
+                                <h6   className="fw-bold fs-6 ">Medical Detail</h6>
                                 <div className="row">
                                     <div className="col">
                                         <ul className="list-unstyled mb-0">
@@ -133,9 +145,9 @@ const CreateCustomer = () => {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="col d-grid">
+                                    <div className="col">
                                         <h5 className="font-size-14 mb-0">Date</h5>
-                            <input className="form-control" type="date" id="nic-input" placeholder=''  {...register("medical_date", {required: true })} />
+                                        <input className="form-control" type="date" id="nic-input" placeholder=''  {...register("medical_date", {required: true })} />
 
                                         {/* <DatePicker className="form-control" selected={startDate} onChange={(date) => setStartDate(date)} id="dob-input" {...register("medical_date", {required: true })} /> */}
                                     </div>
@@ -152,7 +164,7 @@ const CreateCustomer = () => {
                             <h6 className="fw-bold fs-5">Extent Detail</h6>
 
                                 <div className="square-switch">
-                                    <input  {...register("extent")} onChange={handleChangeExtent}  checked={extentChecked} type="checkbox" id="square-switch2" switch="info" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne" />
+                                    <input  {...register("extent , ")} onChange={handleChangeExtent}    type="checkbox" id="square-switch2" switch="info" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne" />
                                     <label htmlFor="square-switch2" data-on-label="Yes" data-off-label="No"></label>
 
                                 </div>
@@ -163,7 +175,7 @@ const CreateCustomer = () => {
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">License No</h5>
-                                                <input className="form-control" type="text" placeholder='' {...register("license_no", extentChecked? {required:true} : {} )}/>
+                                                <input className="form-control" type="text" placeholder='' {...register("license_no", {required:true})}/>
                                             </li>
                                         </ul>
                                     </div>
@@ -174,17 +186,19 @@ const CreateCustomer = () => {
                                                 <Controller
                                                     name="vehicle_class_old"
                                                     control={control}
-                                                    {...register("vehicle_class_old")}
                                                     render={({ field }) => (
-                                                <Select
-                                                    {...field}
-                                                    isMulti
-                                                    value={selectedOptions}
-                                                    onChange={handleChange}
-                                                    options={options}
-                                                    className="basic-multi-select form-control"
-                                                    classNamePrefix="select"
-                                                />  
+                                                    <Select
+                                                        {...field}
+                                                        isMulti
+                                                        value={selectedVehicle_class_old}
+                                                        onChange={(selected)=> {
+                                                            setSelectedVehicle_class_old(selected);
+                                                            setValue("vehicle_class_old", selected ? selected : null)
+                                                        }}
+                                                        options={options}
+                                                        className="basic-multi-select form-control"
+                                                        classNamePrefix="select"
+                                                    />  
                                              )}
                                                 />
                                             </li>
