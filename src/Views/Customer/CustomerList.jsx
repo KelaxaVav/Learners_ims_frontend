@@ -1,7 +1,71 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CustomDataTable from '../CustomPages/CustomDataTable';
 
 const CustomerList = () => {
+
+  // const columns = [
+  //   {
+  //       name: 'Date',
+  //       selector: row => row.id,
+  //       omit: true,
+  //   },
+  //   {
+  //       name: 'Register No',
+  //       selector: row => row.id,
+  //       omit: true,
+  //   },
+  //   {
+  //       name: 'Name',
+  //       selector: row => row.first_name + ' ' + row.last_name ,
+  //   },
+  //   {
+  //       name: 'NIC No',
+  //       selector: row => row.mobile,
+  //   },
+  //   {
+  //       name: 'Date of Birth',
+  //       selector: row => row.email,
+  //   },
+  //   {
+  //       name: 'Vehicle Classes',
+  //       selector: row => row.email,
+  //   },
+  //   {
+  //       name: 'Date of Birth',
+  //       selector: row => row.email,
+  //   },
+  //   {
+  //     name: 'Role',
+  //     selector: row => row.role.name,
+  // },
+  //   {
+  //       name: 'Action',
+  //       center: true,
+  //       cell: (row) => (
+  //           <div>
+  //               {/* <Permission type={["member.edit"]}> */}
+  //                   <Link
+  //                       className="text-success me-2"
+  //                       to={'/editUser'}
+  //                       state={row}
+  //                   >
+  //                        <i className="fas fa-pencil-alt"></i>
+  //                   </Link>
+  //               {/* </Permission> */}
+  //               {/* <Permission type={["member.delete"]}> */}
+  //                   <Link
+  //                       className="me-2 text-danger"
+  //                       onClick={() => handleDelete(row.user_id)}
+  //                   >
+  //                        <i className="fas fa-trash"style={{color:'red'}}></i>
+  //                   </Link>
+  //               {/* </Permission> */}
+  //           </div>
+  //       ),
+  //   },
+  // ];
+
   return (
     <div className="row">
       <div className="col-12">
@@ -40,36 +104,10 @@ const CustomerList = () => {
 
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>2023.10.05</td>
-                  <td>0001</td>
-                  <td>Kopana panchalingam</td> 
-                  <td>967793264v</td> 
-                  <th>Vavuniya</th>
-                  <th>1996.10.05</th>
-                  <th>28</th>
-                  <td>0775456789</td>
-                  <th>AB1B</th>
-                  <td>32000</td>
-                  <td>7024225</td>
-                  <td>2024.10.05</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td className="d-flex justify-content-around">
-                    <a className="btn btn-outline-secondary btn-sm edit" title="Edit">
-                      <i className="fas fa-pencil-alt"></i>
-                    </a>
-                    <a className="btn btn-outline-secondary btn-sm edit" title="Trash">
-                      <i className="fas fa-trash"style={{color:'red'}}></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
+              {/* <CustomDataTable
+                dataRows={userList}
+                columns={columns}
+            /> */}
             </table>
           </div>
         </div>

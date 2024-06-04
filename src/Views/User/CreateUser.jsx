@@ -136,7 +136,7 @@ function CreateUser(props) {
                             </div>
                             <div className="col-sm-6 mb-3 ">
                                 <label htmlFor="example-balance-input" className="form-label">Mobile Number</label>
-                                <input className="form-control" type="number" placeholder='Enter Mobile NUmber' {...register("mobile", { required: true })} />
+                                <input className="form-control" type="number" placeholder='Enter Mobile Number' {...register("mobile", { required: true })} />
                                 <div class="invalid-feedback">
                                     You must agree before submitting.
                                 </div>
@@ -150,8 +150,6 @@ function CreateUser(props) {
                                 <Controller
                                     name="role_id"
                                     control={control}
-                                    {...register("role_id", { required: true })}
-                                    defaultValue={state ? { value: state.role_id, label: state.role_name } : null} // Set the default value based on the state
                                     render={({ field }) => (
                                         <Select
                                             {...field}
@@ -159,7 +157,7 @@ function CreateUser(props) {
                                             getOptionValue={(role) => role.role_id}
                                             getOptionLabel={(role) => role.name}
                                             value={roleDropdownData.find(role => role.role_id === watch("role_id"))} // Set the value based on the watched value
-                                            onChange={(selectedOption) => setValue("role_id", selectedOption ? selectedOption.role_id : null)} // Update form value when selection changes
+                                            onChange={(selectedOption) => setValue("role_id", selectedOption ? selectedOption : null)} // Update form value when selection changes
                                             
                                         />
                                     )}
