@@ -30,14 +30,14 @@ import TrialDate from './Views/TrialDate/TrialDate';
 import LPBook from './Views/LPBook/LPBooks';
 import CreateLPBook from './Views/LPBook/CreateLPBook';
 import FilterExamBook from './Views/ExamBook/FilterExamBook';
-import FilterLPBook from './Views/LPBook/FilteLPBook';
+import FilterLPBook from './Views/LPBook/FilterLPBook';
 import ReExam from './Views/ReAttempt/ReExam';
 import CreateReExam from './Views/ReAttempt/CreateReExam';
 import FilterReExam from './Views/ReAttempt/FilterReExam';
 import ReTrial from './Views/ReTrial/ReTrial';
 import CreateReTrial from './Views/ReTrial/CreateReTrial';
 import FilterReTrial from './Views/ReTrial/FilterReTrial';
-import Profile from './Views/Customer/profile';
+import Profile from './Views/Customer/Profile';
 
 function App() {
   useScript("assets/libs/feather-icons/feather.min.js");
@@ -86,6 +86,9 @@ function App() {
           <Route path="/createCustomer" element={
             <CreateCustomer/>
           } />
+          <Route path="/editCustomer" element={
+            <CreateCustomer/>
+          } />
 
           <Route path="/profile" element={
             <Profile/>
@@ -95,7 +98,11 @@ function App() {
             <VehicleClass/>
           } />
           
-          <Route path="/createVehicle" element={
+          <Route path="/create-vehicle-class" element={
+            <CreateVehicle/>
+          } />
+
+          <Route path="/edit-vehicle-class" element={
             <CreateVehicle/>
           } />
 
@@ -111,16 +118,25 @@ function App() {
             <CreateExamBook/>
           } />
          
-          <Route path="/examDate" element={
+          <Route path="/exam-date" element={
             <ExamDates/>
           } />
-          <Route path="/createExamDate" element={
+
+          <Route path="/create-exam-date" element={
             <CreateExamDate/>
           } />
-          <Route path="/trialDate" element={
+
+          <Route path="/edit-exam-date" element={
+            <CreateExamDate/>
+          } />
+          <Route path="/trial-date" element={
             <TrialDate/>
           } />
-          <Route path="/createTrialDate" element={
+          <Route path="/create-trial-date" element={
+            <CreateTrialDate/>
+          } />
+
+           <Route path="/edit-trial-date" element={
             <CreateTrialDate/>
           } />
 

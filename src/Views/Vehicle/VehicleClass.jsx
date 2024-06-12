@@ -1,47 +1,107 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import CustomDataTable from '../CustomPages/CustomDataTable';
+import ConfirmAlertDialog from '../../utils/AlertDialog/ConfirmAlertDialog';
+import { Http } from '../../services/api';
+import AlertDialog from '../../utils/AlertDialog/AlertDialog';
 
  const VehicleClass = () => {
+
+  const [vehicleClassLists, setVehicleClassLists] = useState(false);
+
+  useEffect(() => {
+    fetchVehicleClass();
+}, []);
+
+const fetchVehicleClass = async () => {
+  try {
+      // const response = await fetch(`${API_BASE_URL}/customer`);
+      const response = await Http.get("vehicle_class");
+      setVehicleClassLists(response.data.data);
+  } catch (error) {
+      console.error(error);
+  }
+};
+
+const handleDelete = async (id) => {
+  const isConfirmed = await ConfirmAlertDialog({
+      confirmButtonText: 'Yes, delete it!',
+      message: 'Are you sure you want to delete?',
+  });
+  if (isConfirmed) {
+      const response = await Http.delete(`/vehicle_class/${id}`)
+      .then(async()=>{
+        fetchVehicleClass();
+          await AlertDialog({ title: "Deleted!", message: "Vehicle Class has been deleted.", icon: "success" });
+      }).catch(async(error)=> {
+        fetchVehicleClass()
+        await AlertDialog({ title: "Deleted!", message: error?.response?.data?.meta?.message ?? "Vehicle Class has not been deleted.", icon: "error" });
+      });
+  }
+};
+
+const columns = [
+  {
+      name: 'Name',
+      selector: row => row.name,
+  },
+  {
+      name: 'Amount',
+      selector: row => row.amount,
+  },
+  {
+      name: 'BIV Amount',
+      selector: row => row.biv_amount,
+  },
+  {
+      name: 'Description',
+      selector: row => row.description,
+  },
+  {
+      name: 'Action',
+      center: true,
+      cell: (row) => (
+          <div>
+              
+              {/* <Permission type={["member.edit"]}> */}
+                  <Link
+                      className="text-success me-2"
+                      to={'/edit-vehicle-class'}
+                      state={row}
+                  >
+                       <i className="fas fa-pencil-alt"></i>
+                  </Link>
+              {/* </Permission> */}
+              {/* <Permission type={["member.delete"]}> */}
+                  <Link
+                      className="me-2 text-danger"
+                      onClick={() => handleDelete(row.vehicleClass_id)}
+                  >
+                       <i className="fas fa-trash"style={{color:'red'}}></i>
+                  </Link>
+              {/* </Permission> */}
+          </div>
+      ),
+  },
+];
+
+
   return (
     <div className="row">
     <div className="col-12">
       <div className="card">
         <div className="card-header d-flex justify-content-between">
           <h4 className="card-title">Customer</h4>
-          <Link to="/createVehicle">
-            <button type="button" className="btn btn-primary waves-effect waves-light">
+          <Link to="/create-vehicle-class">            <button type="button" className="btn btn-primary waves-effect waves-light">
             CreateCustomer +
             </button>
           </Link>
         </div>
         <div className="card-body table-responsive">
-          <table id="dataTable" className="table table-bordered table-responsive nowrap w-100 mt-4">
-            <thead>
-              <tr>
-                <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Name</th>
-                <th style={{minWidth: "200px", maxWidth:"50px",alignContent:'stretch'}}>Discerption</th>
-                <th style={{alignContent:'stretch'}}>Amount</th>
-                <th style={{alignContent:'stretch'}}>BIV Amount</th>
-                <th style={{alignContent:'stretch'}}>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Kopana</td>
-                <td>abcdefghijklmnopqrstuvw</td>
-                <td>35000</td> 
-                <td>32000</td> 
-                <td >
-                  <a className="btn btn-outline-secondary btn-sm edit m-3" title="Edit">
-                    <i className="fas fa-pencil-alt"></i>
-                  </a>
-                  <a className="btn btn-outline-secondary btn-sm edit" title="Trash">
-                    <i className="fas fa-trash" style={{color:'red'}}></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <CustomDataTable
+          dataRows={vehicleClassLists}
+          columns={columns}
+        />
         </div>
       </div>
     </div>

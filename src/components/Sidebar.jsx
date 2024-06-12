@@ -65,13 +65,13 @@ function Sidebar(props) {
                 </a>
                 <ul className="sub-menu" aria-expanded="false">
                   <li>
-                    <Link to={"/examDate"}>
+                    <Link to={"/exam-date"}>
                       <i className=" far fa-calendar-alt" />
                       <span>Exam Date</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to={"/trialDate"}>
+                    <Link to={"/trial-date"}>
                       <i className=" far fa-calendar-check" />
                       <span>TrialDate</span>
                     </Link>

@@ -1,6 +1,112 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import CustomDataTable from '../CustomPages/CustomDataTable';
+import ConfirmAlertDialog from '../../utils/AlertDialog/ConfirmAlertDialog';
+import { Http } from '../../services/api';
+import AlertDialog from '../../utils/AlertDialog/AlertDialog';
+
 
 const Profile = () => {
+
+  const [customer, setCustomer] = useState();
+
+  const { state } = useLocation();
+
+
+  useEffect(() => {
+    fetchCustomer();
+  }, []);
+
+
+
+  const getAge = (dob) => {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  const fetchCustomer = async () => {
+    if (state) {
+      await Http.get(`customer/${state.customer_id}`)
+        .then((res) => {
+          setCustomer(res.data.data)
+        }).catch((error) => {
+          AlertDialog({ title: "Updated!", message: error?.response?.data?.meta?.message ?? "Vehicle Class has not been updated.", icon: "error" });
+        });
+
+    }
+  };
+
+  const getName = (data) => {
+    if (data) {
+      const value = JSON.parse(data)?.map(item => item?.name? item?.name : item ).join(", ");
+      return value
+    }
+    else {
+      return "";
+    }
+  }
+
+  const columns = [
+    {
+        name: 'Exam Date',
+        selector: row => row.exam_date,
+    },
+    {
+        name: 'Exam Type',
+        selector: row =>  row.type=='written'? 'Written Exam' : 'Oral Exam',
+    },
+    {
+        name: 'Status',
+        selector: row => row.id,
+    },
+    {
+        name: 'Description',
+        selector: row => row.description,
+    },
+    {
+        name: 'Amount',
+        selector: row => row.description,
+    },
+    {
+        name: 'Paid Amount',
+        selector: row => row.description,
+    },
+    {
+        name: 'Action',
+        center: true,
+        cell: (row) => (
+            <div>
+                
+                {/* <Permission type={["member.edit"]}> */}
+                    <Link
+                        className="text-success me-2"
+                        to={'/edit-vehicle-class'}
+                        state={row}
+                    >
+                         <i className="fas fa-pencil-alt"></i>
+                    </Link>
+                {/* </Permission> */}
+                {/* <Permission type={["member.delete"]}> */}
+                    <Link
+                        className="me-2 text-danger"
+                        onClick={() => handleDelete(row.vehicleClass_id)}
+                    >
+                         <i className="fas fa-trash"style={{color:'red'}}></i>
+                    </Link>
+                {/* </Permission> */}
+            </div>
+        ),
+    },
+  ];
+  
+
+
   return (
     <div className="row">
       <div className="col-xl-9 col-lg-8">
@@ -16,14 +122,18 @@ const Profile = () => {
                   </div>
                   <div className="flex-grow-1">
                     <div>
-                      <h5 className="font-size-15 mb-1">Kopana Panchalingam</h5>
+                      <h5 className="font-size-15 mb-1">
+                        {customer?.full_name}
+                      </h5>
                       <div className="row">
-                        <p className="text-muted font-size-13"> Vehicle Class <strong>(A1, B, B1)</strong> </p>
+                        <p className="text-muted font-size-13"> Vehicle Class <strong>(
+                          {getName(customer?.vehicle_class)}
+                          )</strong> </p>
                       </div>
 
                       <div className="d-flex flex-wrap align-items-start gap-2 gap-lg-3 text-muted font-size-13">
-                        <div><i className="mdi mdi-circle-medium text-success align-middle" />077 123 4567</div>
-                        <div><i className="mdi mdi-circle-medium text-success align-middle" />072 456 1258</div>
+                        <div><i className="mdi mdi-circle-medium text-success align-middle" />{customer?.personal_pno}</div>
+                        <div><i className="mdi mdi-circle-medium text-success align-middle" />{customer?.secondary_pno}</div>
                       </div>
                     </div>
                   </div>
@@ -31,7 +141,7 @@ const Profile = () => {
               </div>
               <div className="col-sm-auto order-1 order-sm-2">
                 <div className="d-flex align-items-center justify-content-end gap-2">
-                  <label htmlFor="" className='form-label'>Reg.No :- 1900</label>
+                  <label htmlFor="" className='form-label'>Reg.No :- {customer?.id}</label>
                   <div>
                     {/* <div className="dropdown">
                   <button className="btn btn-link font-size-16 shadow-none text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,30 +185,30 @@ const Profile = () => {
                 <dl class="row mb-0">
                   <div class="col-md-4">
                     <dt class="col-sm-12 fw-normal">Full Name</dt>
-                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>Kopana Panchalingam</dd>
+                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>{customer?.full_name}</dd>
 
                     <dt class="col-sm-12 fw-normal">NIC No</dt>
-                    <dd class="col-sm-12 fw-bold" style={{ fontSize: 15 }}>9989653214V</dd>
+                    <dd class="col-sm-12 fw-bold" style={{ fontSize: 15 }}>{customer?.nic}</dd>
                   </div>
 
                   <div class="col-md-4">
                     <dt class="col-sm-12 fw-normal">Address</dt>
-                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>Kovil Road kurmankadu vavuniya</dd>
+                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>{customer?.address}</dd>
 
                     <dt class="col-sm-12 fw-normal">Date of Birth</dt>
-                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>1999-01-01</dd>
+                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>{customer?.dob}</dd>
                   </div>
 
                   <div class="col-md-4">
                     <dt class="col-sm-12 fw-normal">Age</dt>
-                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>26</dd>
+                    <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>{getAge(customer?.dob)}</dd>
 
-                    <dt class="col-sm-12 fw-normal">Phone No</dt>
+                    {/* <dt class="col-sm-12 fw-normal">Phone No</dt>
                     <dd class="col-sm-12">
                       <dl class="row mb-0">
                         <dd class="col-sm-12 fw-bold " style={{ fontSize: 15 }}>077 125 4895 / 077 125 4895</dd>
                       </dl>
-                    </dd>
+                    </dd> */}
                   </div>
                 </dl>
               </div>
@@ -246,57 +356,77 @@ const Profile = () => {
       {/* end col */}
       <div className="col-xl-3 col-lg-4">
         {/* end card */}
-        <div className="card">
-          <div className="card-header">
-            <h5 className="card-title ">Medical Detail</h5>
-          </div>
-          <div className="card-body">
-            <div>
-              <ul className="list-unstyled mb-0">
-                <li className='mb-2'>
-                  <h5 className="font-size-14 mb-1">Certificate No</h5>
-                  <p className="font-size-13 text-muted mb-0">T024223</p>
-                </li>
-                <li className='mb-2'>
-                  <h5 className="font-size-14 mb-1">Date</h5>
-                  <p className="font-size-13 text-muted mb-0">2024-02-25</p>
-                </li>
-                <li className='mb-2'>
-                  <h5 className="font-size-14 mb-1">Note</h5>
-                  <p className="font-size-13 text-muted mb-0">O+, 56kg</p>
-                </li>
-
-              </ul>
+        {(customer?.medical_no) &&
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title ">Medical Detail</h5>
             </div>
+            <div className="card-body">
+              <div>
+                <ul className="list-unstyled mb-0">
+                  {(customer?.medical_no) &&
+                    <li className='mb-2'>
+                      <h5 className="font-size-14 mb-1">Certificate No</h5>
+                      <p className="font-size-13 text-muted mb-0">{customer?.medical_no}</p>
+                    </li>
+                  }
+                  {(customer?.medical_date) &&
+                    <li className='mb-2'>
+                      <h5 className="font-size-14 mb-1">Date</h5>
+                      <p className="font-size-13 text-muted mb-0">{customer?.medical_date}</p>
+                    </li>
+                  }
+                  {(customer?.medical_note) &&
+                    <li className='mb-2'>
+                      <h5 className="font-size-14 mb-1">Note</h5>
+                      <p className="font-size-13 text-muted mb-0">{customer?.medical_note}</p>
+                    </li>
+                  }
+
+                </ul>
+              </div>
+            </div>
+            {/* end card body */}
           </div>
-          {/* end card body */}
-        </div>
+        }
         {/* end card */}
-        <div className="card">
-          <div className="card-header">
-            <h5 className="card-title ">License Detail</h5>
-          </div>
-          <div className="card-body">
-            <div>
-              <ul className="list-unstyled mb-0">
-                <li className='mb-2'>
-                  <h5 className="font-size-14 mb-1">License No</h5>
-                  <p className="font-size-13 text-muted mb-0">T024223</p>
-                </li>
-                <li className='mb-2'>
-                  <h5 className="font-size-14 mb-1">Vehicle Class</h5>
-                  <p className="font-size-13 text-muted mb-0">2024-02-25</p>
-                </li>
-                <li className='mb-2'>
-                  <h5 className="font-size-14 mb-1">Note</h5>
-                  <p className="font-size-13 text-muted mb-0">O+, 56kg</p>
-                </li>
 
-              </ul>
+        {(customer?.license_no) &&
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title ">License Detail</h5>
             </div>
+            <div className="card-body">
+              <div>
+                <ul className="list-unstyled mb-0">
+                  {(customer?.license_no) &&
+                    <li className='mb-2'>
+                      <h5 className="font-size-14 mb-1">License No</h5>
+                      <p className="font-size-13 text-muted mb-0">{customer?.license_no}</p>
+                    </li>
+                  }
+                  {(customer?.vehicle_class_old) &&
+                    <li className='mb-2'>
+                      <h5 className="font-size-14 mb-1">Vehicle Class</h5>
+                      <p className="font-size-13 text-muted mb-0">
+                        {getName(customer?.vehicle_class_old)}
+                      </p>
+                    </li>
+                  }
+                  {(customer?.extent_note) &&
+                    <li className='mb-2'>
+                      <h5 className="font-size-14 mb-1">Note</h5>
+                      <p className="font-size-13 text-muted mb-0">{customer?.extent_note}</p>
+                    </li>
+                  }
+
+                </ul>
+              </div>
+            </div>
+            {/* end card body */}
           </div>
-          {/* end card body */}
-        </div>
+        }
+
         {/* end card */}
       </div>
       {/* end col */}

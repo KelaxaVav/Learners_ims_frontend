@@ -1,36 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
-import DatePicker from "react-datepicker";
 import { Controller, useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
 import { CreateFailed, CreateSuccessful } from '../../utils/AlertDialog';
 import AlertDialog from '../../utils/AlertDialog/AlertDialog';
 import { Http } from '../../services/api';
 
-const options = [
-    {value:"A1", label:"A1"},           
-   {value: "A", label: "A"},           
-    {value:"B1", label:"B1"},           
-   {value: "B", label: "B"},           
-    {value:"C1", label:"C1"},           
-   {value: "C", label: "C"},           
-    {value:"CE", label:"CE"},           
-    {value:"D1", label:"D1"},           
-   {value: "D", label: "D"},           
-    {value:"DE", label:"DE"},           
-    {value:"G1", label:"G1"},           
-   {value: "G", label: "G"},           
-  {value:  "J", label:  "J"},  
-];
-
 const CreateCustomer = () => {
-    
-    // const { state } = useLocation();
 
-
-// const initialValuesArray = state?.vehicle_class?.split(",");
-
-    const [extentChecked , setExtentChecked] = useState(false); 
+    const [vehicleClassData, setVehicleClassData] = useState([]);
+    // const [extentChecked , setExtentChecked] = useState(false); 
+    const [customerId, setCustomerId] = useState('');
+    const [isEdit, setIsEdit] = useState(false);
+    const { state } = useLocation();
 
     const {
         register,
@@ -44,37 +26,75 @@ const CreateCustomer = () => {
         formState: {errors },
     } = useForm();
 
-    const [selectedVehicle_class, setSelectedVehicle_class] = useState([]);
-    const [selectedVehicle_class_old, setSelectedVehicle_class_old] = useState([]);
+    useEffect(() => {
+        vehicleClassList();
+        if (state) {
+            setIsEdit(true);
+            setValue("full_name", state.full_name);
+            setValue("nic", state.nic);
+            setValue("address", state.address);
+            setValue("dob", state.dob);
+            setValue("personal_pno", state.personal_pno); 
+            setValue("secondary_pno", state.secondary_pno); 
+            setValue("vehicle_class",  JSON.parse(state.vehicle_class)); 
+            setValue("medical_no", state.medical_no); 
+            setValue("medical_date", state.medical_date); 
+            setValue("medical_note", state.medical_note); 
+            setValue("license_no", state.license_no); 
+            setValue("vehicle_class_old", JSON.parse(state.vehicle_class_old)); 
+            setValue("extent_note", state.extent_note); 
+            setCustomerId(state.customer_id); 
+            
+        }
+      
+    }, [state]); 
 
-   
+    const vehicleClassList = async () => {
+        try {
+            const result = await Http.get("vehicle_class");
 
-    const handleChangeExtent =  (e) => {
-        const  checked =  e.target.checked;
-        setExtentChecked(checked);
-        console.log(extentChecked);
-      };
+            setVehicleClassData(result.data.data.map((data)=> 
+                ({vehicleClass_id: data.vehicleClass_id, name: data.name})
+            ));
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    // const handleChangeExtent =  (e) => {
+    //     const  checked =  e.target.checked;
+    //     setExtentChecked(checked);
+    //     console.log(extentChecked);
+    //   };
 
     const onSubmitData =async (data) =>{
-         data.vehicle_class = data.vehicle_class.map((x)=> ({value: x.value, label: x.label}))
-        // console.log(vehicle);
-        console.log(data.vehicle_class);
-        
-        const response = await Http.post("/customer", data)
-        .then( async (res)=>{
-
-            await CreateSuccessful();
-
-        }).catch( async (error)=>{
-            console.log(error);
-            await AlertDialog({ title: "Failed!", message: error?.response?.data?.meta?.message ??"Customer has not been created.", icon: "error" });
-        });
+        if (isEdit) {
+            const response = await Http.put(`customer/${customerId}`, data)
+            .then(async()=>{
+                await AlertDialog({ title: "Updated!", message: "Customer has been updated.", icon: "success" });
+            })
+            .catch(async(error)=> {
+                await AlertDialog({ title: "Updated!", message: error?.response?.data?.meta?.message ?? "Customer has not been updated.", icon: "error" });
+            });
+           
+        }else{
+            const response = await Http.post("/customer", data)
+            .then( async (res)=>{
+                await CreateSuccessful();
+            }).catch( async (error)=>{
+                await AlertDialog({ title: "Failed!", message: error?.response?.data?.meta?.message ??"Customer has not been created.", icon: "error" });
+            });
+        }
 
     }
 
+    const handleReset = () => {
+        reset();
+    };
+
     return (
         <>
-            <h4 className="card-title">CREATE Customer</h4>
+            <h4 className="card-title"> {isEdit? "UPDATE":"CREATE" } CUSTOMER</h4>
             <div   className="col-12 p-0 card rounded-0">
                 <div className="card-body p-2">
                     <form onSubmit={handleSubmit(onSubmitData)}>
@@ -115,12 +135,12 @@ const CreateCustomer = () => {
                                     <Select
                                         {...field}
                                         isMulti
-                                        value={selectedVehicle_class}
+                                        options={vehicleClassData}
+                                        getOptionValue={(vehicleClass) => vehicleClass.vehicleClass_id}
+                                        getOptionLabel={(vehicleClass) => vehicleClass.name}
                                         onChange={(selected)=> {
-                                            setSelectedVehicle_class(selected);
                                             setValue("vehicle_class", selected ? selected : null)
                                         }}
-                                        options={options}
                                         className="basic-multi-select form-control"
                                         classNamePrefix="select"
                                     />  
@@ -164,7 +184,7 @@ const CreateCustomer = () => {
                             <h6 className="fw-bold fs-5">Extent Detail</h6>
 
                                 <div className="square-switch">
-                                    <input  {...register("extent , ")} onChange={handleChangeExtent}    type="checkbox" id="square-switch2" switch="info" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne" />
+                                    <input  {...register("extent , ")}    type="checkbox" id="square-switch2" switch="info" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne" />
                                     <label htmlFor="square-switch2" data-on-label="Yes" data-off-label="No"></label>
 
                                 </div>
@@ -190,12 +210,12 @@ const CreateCustomer = () => {
                                                     <Select
                                                         {...field}
                                                         isMulti
-                                                        value={selectedVehicle_class_old}
+                                                        options={vehicleClassData}
+                                                        getOptionValue={(vehicleClass) => vehicleClass.vehicleClass_id}
+                                                        getOptionLabel={(vehicleClass) => vehicleClass.name}
                                                         onChange={(selected)=> {
-                                                            setSelectedVehicle_class_old(selected);
                                                             setValue("vehicle_class_old", selected ? selected : null)
                                                         }}
-                                                        options={options}
                                                         className="basic-multi-select form-control"
                                                         classNamePrefix="select"
                                                     />  
@@ -222,7 +242,7 @@ const CreateCustomer = () => {
                                     <i className="d-block font-size-8"></i> Reset
                                 </button>
                                 <button type="submit" className="btn btn-primary waves-effect waves-light w-sm">
-                                    Submit
+                                    {isEdit? "Update":"Submit" }
                                 </button>
                             </div>
                         </div>
