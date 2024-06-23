@@ -51,7 +51,7 @@ const columns = [
   },
   {
       name: 'BIV Amount',
-      selector: row => row.biv_amount,
+      selector: row => row.piv_amount,
   },
   {
       name: 'Description',

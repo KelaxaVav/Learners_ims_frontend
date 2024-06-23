@@ -46,7 +46,7 @@ const columns = [
   },
   {
       name: 'Exam Date',
-      selector: row => row.exam_dates.map((val)=>(val.exam_date)).join(' , '),
+      selector: row => row.exam_dates.map((val)=>(val.exam_date )).join(' , '),
   },
   {
       name: 'Limit Person',

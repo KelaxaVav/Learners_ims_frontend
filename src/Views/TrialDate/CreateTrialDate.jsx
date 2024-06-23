@@ -48,8 +48,7 @@ const CreateTrialDate = () => {
            
            await Http.get(`trial-date/${state.trial_date_id}`)
             .then(async(res)=>{
-                console.log(res.data.data.exam_dates.map((val)=>(val.exam_date_id)));
-                setValue("exam_date", res.data.data.exam_dates.map((val)=>(val.exam_date_id)));
+                setValue("exam_date", res.data.data.exam_dates.map((val)=>({exam_date_id:val.exam_date_id, exam_date:val.exam_date, type:val.type})));
                 setValue("limit", res.data.data.limit);
                 setValue("trial_date", res.data.data.trial_date);
                 setValue("description", res.data.data.description);
@@ -60,19 +59,20 @@ const CreateTrialDate = () => {
     };
 
     const onSubmitData =async (data) =>{
-        // data.type= data.type.value
+        data.exam_date= data.exam_date.map((val)=>(val.exam_date_id))
         if (isEdit) {
-            await Http.put(`trial-date/${examDateId}`, data)
+            console.log(data);
+            await Http.put(`trial-date/${TrialDateId}`, data)
             .then(async()=>{
                 await AlertDialog({ title: "Updated!", message: "Trial Date has been updated.", icon: "success" });
                 fetchTrialDate();
             })
             .catch(async(error)=> {
                 await AlertDialog({ title: "Updated!", message: error?.response?.data?.meta?.message ?? "Trial Date has not been updated.", icon: "error" });
+                fetchTrialDate();
             });
            
         }else{
-            data.exam_date= data.exam_date.map((val)=>(val.exam_date_id))
             // console.log(data);
             await Http.post("/trial-date", data)
             .then( async (res)=>{
@@ -92,7 +92,7 @@ const CreateTrialDate = () => {
 
   return (
     <>
-        <h4 className="card-title">Create Trial Date</h4>
+        <h4 className="card-title">{isEdit?"UPDATE":"CREATE"} TRIAL DATE</h4>
         <div className="col-12 p-0 card  rounded-0 ">
             <div className="card-body p-2">
             <form onSubmit={handleSubmit(onSubmitData)}>

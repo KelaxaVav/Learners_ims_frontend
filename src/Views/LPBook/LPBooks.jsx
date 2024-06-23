@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const LPBooks = () => {
+
+const {state}=useLocation()
+
+console.log(state);
   return (
     <div className="row">
       <div className="col-12">

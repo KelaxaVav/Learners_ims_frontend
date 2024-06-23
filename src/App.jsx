@@ -106,7 +106,7 @@ function App() {
             <CreateVehicle/>
           } />
 
-          <Route path="/examBook" element={
+          <Route path="/exam-book" element={
             <ExamBook/>
           } />
 
@@ -140,7 +140,7 @@ function App() {
             <CreateTrialDate/>
           } />
 
-          <Route path="/lpBook" element={
+          <Route path="/lp-Book" element={
             <LPBook/>
           } />
 

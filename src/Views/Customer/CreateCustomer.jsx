@@ -29,6 +29,7 @@ const CreateCustomer = () => {
     useEffect(() => {
         vehicleClassList();
         if (state) {
+            console.log(JSON.parse(state.vehicle_class));
             setIsEdit(true);
             setValue("full_name", state.full_name);
             setValue("nic", state.nic);
@@ -195,7 +196,7 @@ const CreateCustomer = () => {
                                         <ul className="list-unstyled mb-0">
                                             <li className="mb-2">
                                                 <h5 className="font-size-14 mb-1">License No</h5>
-                                                <input className="form-control" type="text" placeholder='' {...register("license_no", {required:true})}/>
+                                                <input className="form-control" type="text" placeholder='' {...register("license_no")}/>
                                             </li>
                                         </ul>
                                     </div>

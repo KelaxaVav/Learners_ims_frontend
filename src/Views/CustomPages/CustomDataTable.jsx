@@ -3,7 +3,7 @@ import { useState } from "react";
 import DataTable, { createTheme } from 'react-data-table-component';
 import React from "react";
 
-const CustomDataTable = ({ columns, dataRows, setPage = undefined, currentPage = 1, sNoWidth = "70px", sNoPaddingLeft = "10px", onRowClicked = () => { } }) => {
+const CustomDataTable = ({ columns, dataRows, setPage = undefined, currentPage = 1, sNoWidth = "70px", sNoPaddingLeft = "10px", selectableRows=false, onRowClicked = () => { } }) => {
 
   const [data, setData] = useState([]);
   const [totalRows, setTotalRows] = useState(0);
@@ -81,6 +81,7 @@ const CustomDataTable = ({ columns, dataRows, setPage = undefined, currentPage =
       data={data}
       pagination
       paginationServer
+      selectableRows = {selectableRows}
       paginationTotalRows={totalRows}
       onChangeRowsPerPage={handlePerRowsChange}
       onChangePage={handlePageChange}

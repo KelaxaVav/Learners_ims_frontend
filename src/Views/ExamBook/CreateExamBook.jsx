@@ -1,8 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import CustomDataTable from '../CustomPages/CustomDataTable';
+import ConfirmAlertDialog from '../../utils/AlertDialog/ConfirmAlertDialog';
+import { Http } from '../../services/api';
+import AlertDialog from '../../utils/AlertDialog/AlertDialog';
 
 function CreateExamBook(props) {
+
+    const {state} = useLocation();
+
+    useEffect(()=>{
+        fetchExamBook();
+    },[])
+
+    const fetchExamBook = async()=>{
+        if (state) {
+            const customers = await Http.get(`/customer?type=${state.type}&exam_date_id=${state.exam_date_id}`)
+        }
+    }
+
     return (
         <>
             <div className="row">
